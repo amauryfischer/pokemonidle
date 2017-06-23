@@ -93,7 +93,7 @@ const POKEDEX = [
       ],
       "images": {
          "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/venusaur.gif",
-         "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/venusaur.gif"
+         "back": "/home/amauey/Images/pokemon animation/Battlers/003b.gif"
       }
    },
    {
@@ -189,7 +189,7 @@ const POKEDEX = [
       ],
       "images": {
          "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/charizard.gif",
-         "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/charizard.gif"
+         "back": "/home/amauey/Images/pokemon animation/Battlers/006b.gif"
       }
    },
    {
@@ -4830,6 +4830,134 @@ const POKEDEX = [
       "images": {
          "front": "https://img.pokemondb.net/sprites/black-white/anim/normal/mew.gif",
          "back": "https://img.pokemondb.net/sprites/black-white/anim/back-normal/mew.gif"
+      }
+   },
+   {
+      "pokemon": [
+         {
+            "Pokemon": "Chikorita"
+         }
+      ],
+      "stats": [
+         {
+            "catch rate": "45",
+            "growth rate": "Medium Slow",
+            "hp": "45",
+            "attack": "49",
+            "defense": "65",
+            "sp atk": "49",
+            "sp def": "65",
+            "speed": "45",
+            "types": {
+               "text": "Grass",
+               "href": "https://pokemondb.net/type/grass"
+            }
+         }
+      ],
+      "exp": [
+         {
+            "base exp": "64"
+         }
+      ],
+      "images": {
+         "front": "/home/amauey/Images/pokemon animation/Battlers/152.gif",
+         "back": "/home/amauey/Images/pokemon animation/Battlers/152b.gif"
+      }
+   },
+   {
+      "pokemon": [
+         {
+            "Pokemon": "Bayleef"
+         }
+      ],
+      "stats": [
+         {
+            "catch rate": "45",
+            "growth rate": "Medium Slow",
+            "hp": "60",
+            "attack": "62",
+            "defense": "80",
+            "sp atk": "63",
+            "sp def": "80",
+            "speed": "60",
+            "types": {
+               "text": "Grass",
+               "href": "https://pokemondb.net/type/grass"
+            }
+         }
+      ],
+      "exp": [
+         {
+            "base exp": "141"
+         }
+      ],
+      "images": {
+         "front": "/home/amauey/Images/pokemon animation/Battlers/153.gif",
+         "back": "/home/amauey/Images/pokemon animation/Battlers/153b.gif"
+      }
+   },
+   {
+      "pokemon": [
+         {
+            "Pokemon": "Meganium"
+         }
+      ],
+      "stats": [
+         {
+            "catch rate": "45",
+            "growth rate": "Medium Slow",
+            "hp": "80",
+            "attack": "82",
+            "defense": "100",
+            "sp atk": "83",
+            "sp def": "100",
+            "speed": "80",
+            "types": {
+               "text": "Grass",
+               "href": "https://pokemondb.net/type/grass"
+            }
+         }
+      ],
+      "exp": [
+         {
+            "base exp": "209"
+         }
+      ],
+      "images": {
+         "front": "/home/amauey/Images/pokemon animation/Battlers/154.gif",
+         "back": "/home/amauey/Images/pokemon animation/Battlers/154b.gif"
+      }
+   },
+   {
+      "pokemon": [
+         {
+            "Pokemon": "Arceus"
+         }
+      ],
+      "stats": [
+         {
+            "catch rate": "3",
+            "growth rate": "Slow",
+            "hp": "120",
+            "attack": "120",
+            "defense": "120",
+            "sp atk": "120",
+            "sp def": "120",
+            "speed": "120",
+            "types": {
+               "text": "Normal",
+               "href": "https://pokemondb.net/type/normal"
+            }
+         }
+      ],
+      "exp": [
+         {
+            "base exp": "209"
+         }
+      ],
+      "images": {
+         "front": "/home/amauey/Images/pokemon animation/Battlers/493.gif",
+         "back": "/home/amauey/Images/pokemon animation/Battlers/493b.gif"
       }
    },
 //Mega1G

@@ -320,5 +320,19 @@ const ROUTES = {
     , minLevel: 35
     , maxLevel: 40
     , unlocked: true
-    }  
+    },
+    my_test: {
+	name: 'My test',
+	pokes: ['Chikorita','Bayleef','Meganium'],
+	minLevel: 15,
+	maxLevel: 15,
+	unlocked: true
+    },
+    my_test2: {
+	name: 'Arceuse',
+	pokes: ['Arceus'],
+	minLevel: 50,
+	maxLevel: 50,
+	unlocked: true
+    }
 }

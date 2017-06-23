@@ -286,5 +286,13 @@ const EVOLUTIONS = {
   "Dragonair":{
     "level":"55",
     "to":"Dragonite"
+  },
+  "Chikorita":{
+    "level":"16",
+    "to":"Bayleef"
+  },
+  "Bayleef":{
+    "level":"32",
+    "to":"Meganium"
   }
 };
