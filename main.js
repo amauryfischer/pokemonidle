@@ -1,12 +1,26 @@
 /*
-  global: POKEDEX
+  global: POKEDEX1
+  global: POKEDEX2
+  global: POKEDEX3
+  global: POKEDEX4
+  global: POKEDEX5
+  global: POKEDEX6
+  global: POKEDEX7
+  global: POKEDEX8
+  global: POKEDE9
+  global: POKEDEX10
   global: TYPES
   global: EXP_TABLE
   global: ROUTES
   global: EVOLUTIONS
 */
 'use strict'
-
+const POKEDEX = []
+for (var i in POKEDEX1[0]) { POKEDEX.push(POKEDEX1[0][i]) }
+for (var i in POKEDEX2[0]) { POKEDEX.push(POKEDEX2[0][i]) }
+for (var i in POKEDEX3[0]) { POKEDEX.push(POKEDEX3[0][i]) }
+for (var i in POKEDEX4[0]) { POKEDEX.push(POKEDEX4[0][i]) }
+for (var i in POKEDEX5[0]) { POKEDEX.push(POKEDEX5[0][i]) }
 const pokeById = (id) => POKEDEX[id - 1]
 const pokeByName = (name) => POKEDEX.filter((el) => el.pokemon[0].Pokemon === name)[0]
 
@@ -57,8 +71,8 @@ const makeDomHandler = () => {
     const pokeStatusAsText = (poke) => {
       var output = ''
       output += 'Attack Speed: ' + poke.attackSpeed()/1000 + '<br>'
-      output += '\nAttack: ' + (poke.allCombat().attack() + poke.allCombat().spAttack())/2 + '<br>'
-      output += '\nDefense: ' + (poke.allCombat().defense() + + poke.allCombat().spDefense())/2 + '<br>'
+      output += '\nAttack: ' + poke.allCombat().attack() + '<br>'
+      output += '\nDefense: ' + poke.allCombat().defense() + '<br>'
       return output
     }
     const containerCssQuery = '.container.poke' + '#' + id
@@ -256,7 +270,8 @@ const makeDomHandler = () => {
 
 const makePoke = (pokeModel, initialLevel, initialExp) => {
   var poke = cloneJsonObject(pokeModel)
-  const expTable = EXP_TABLE[poke.stats[0]["growth rate"]]
+  /*const expTable = EXP_TABLE[poke.stats[0]["growth rate"]]*/
+  const expTable = EXP_TABLE['Medium Slow']
   var exp = initialLevel
               && expTable[initialLevel - 1]
               || initialExp
@@ -267,7 +282,8 @@ const makePoke = (pokeModel, initialLevel, initialExp) => {
 
     }
   const statValue = (raw) => {
-    return Math.floor((((raw + 50) * currentLevel()) / (150)))
+    return Math.floor(raw)
+    /*return Math.floor((((parseInt(raw) + 50) * currentLevel()) / (150)))*/
   }
   const hp = (rawHp) => {
     return Math.floor(((rawHp * currentLevel()) / 40))
@@ -288,8 +304,8 @@ const makePoke = (pokeModel, initialLevel, initialExp) => {
       hp: hp(poke.stats[0].hp) * 3
     }
   , maxHp: () => hp(poke.stats[0].hp) * 3
-  , attack: () => statValue(poke.stats[0].attack)
-  , defense: () => statValue(poke.stats[0].defense)
+  , attack: () => statValue((poke.stats[0].attack + poke.stats[0]['sp atk'])/2)
+  , defense: () => statValue((poke.stats[0].defense + poke.stats[0]['sp def'])/2)
   , spAttack: () => statValue(poke.stats[0]['sp atk'])
   , spDefense: () => statValue(poke.stats[0]['sp def'])
   , speed: () => statValue(poke.stats[0].speed)
@@ -326,11 +342,13 @@ const makePoke = (pokeModel, initialLevel, initialExp) => {
     }
   }
   , attack: () => combat.attack()
-  , takeDamage: (enemyAttack) => {
-      const damageToTake = (enemyAttack - combat.defense() / 10) > 0
-                              && Math.ceil((enemyAttack - combat.defense()/10) * (Math.random() * 2) / 100)
-                              || 0
+  , defense: () => combat.defense()
+  , takeDamage: (dmgmult,att,def) => {
+      const damageToTake = ((att.level()*0.4+2)*att.attack() - (def.defense() * def.level()*0.4)) < 999999999999999999999
+                              && Math.ceil(  (((att.level()*0.4+2)*att.attack()))  * (Math.random() * (1.0 - 0.85) + 0.85 * 2) * dmgmult / def.defense())
+                              || 1
       combat.mutable.hp -= damageToTake
+      console.log(damageToTake)
       return damageToTake
     }
   , baseExp: () => Number(poke.exp[0]['base exp'])
@@ -350,13 +368,15 @@ const makePlayer = () => {
   const ballsRngs = {
     pokeball: 2,
     greatball: 6,
-    ultraball: 10
+    ultraball: 10,
+    secretball: 20,
   }
   var selectedBall = "pokeball"
   var ballsAmmount = {
     pokeball: 20,
     greatball: 0,
-    ultraball: 0
+    ultraball: 0,
+    secretball: 0
   }
 
   const canHeal = () => {
@@ -560,7 +580,7 @@ const makeCombatLoop = (enemy, player, dom) => {
     if (attacker.alive() && defender.alive()) {
       // both alive
       const damageMultiplier = TYPES[attacker.type()][defender.type()]
-      const damage = defender.takeDamage(attacker.attack() * damageMultiplier)
+      const damage = defender.takeDamage(damageMultiplier,attacker,defender)
       if (who === 'player') {
         dom.attackAnimation('playerImg', 'right')
         dom.gameConsoleLog(attacker.pokeName() + ' Attacked for ' + damage, 'green')
@@ -604,7 +624,12 @@ const makeCombatLoop = (enemy, player, dom) => {
         }
 
         const ballsAmmount = Math.floor(Math.random() * 10) + 1
-        const ballName = randomArrayElement(['pokeball', 'pokeball', 'pokeball', 'pokeball', 'pokeball', 'pokeball', 'greatball', 'greatball', 'ultraball'])
+        const baseBall = []
+        for (var i=0; i<24; i++) { baseBall.push('pokeball') }
+        for (var i=0; i<8; i++) { baseBall.push('greatball') }
+        for (var i=0; i<4; i++) { baseBall.push('ultraball') }
+        for (var i=0; i<1; i++) { baseBall.push('secretball') }
+        const ballName = randomArrayElement(baseBall)
         const rngHappened2 =
           RNG(
             player.addBalls.bind(
