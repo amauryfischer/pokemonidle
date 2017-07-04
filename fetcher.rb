@@ -6,7 +6,7 @@ require 'restclient'
 require 'json'
 my_json = []
 i=0
-for num in 471..493
+for num in 1..493
   page = RestClient.get("http://pokeapi.co/api/v2/pokemon/#{num}/")
   page_parsed = JSON.parse(page.body)
   if (page_parsed['id']<10)
@@ -40,7 +40,6 @@ for num in 471..493
   i = i+1
 end
 File.open("pokedex5.js", 'w') { |file| file.write("const POKEDEX5 = ["+my_json.to_json+"];") }
-1+1
 # response.code
 # response.body
 #a['chain']['evolves_to'][0]['species']['name']

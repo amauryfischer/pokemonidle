@@ -163,8 +163,7 @@ const makeDomHandler = () => {
 
 		   >
 			 ${poke.pokeName()} (${poke.level()})
-		   </a>
-		   <br>` +
+		   </a>` +
 			upButton +
 			downButton +
 			`<li>`
@@ -344,7 +343,7 @@ const makePoke = (pokeModel, initialLevel, initialExp) => {
   , attack: () => combat.attack()
   , defense: () => combat.defense()
   , takeDamage: (dmgmult,att,def) => {
-      const damageToTake = ((att.level()*0.4+2)*att.attack() - (def.defense() * def.level()*0.4)) < 999999999999999999999
+      const damageToTake = 1 < 999999999999999999999
                               && Math.ceil(  (((att.level()*0.4+2)*att.attack()))  * (Math.random() * (1.0 - 0.85) + 0.85 * 2) * dmgmult / def.defense())
                               || 1
       combat.mutable.hp -= damageToTake
@@ -580,6 +579,9 @@ const makeCombatLoop = (enemy, player, dom) => {
     if (attacker.alive() && defender.alive()) {
       // both alive
       const damageMultiplier = TYPES[attacker.type()][defender.type()]
+      if (damageMultiplier == null) {
+        damageMultiplier = 1;
+      }
       const damage = defender.takeDamage(damageMultiplier,attacker,defender)
       if (who === 'player') {
         dom.attackAnimation('playerImg', 'right')

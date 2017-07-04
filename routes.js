@@ -349,5 +349,13 @@ my_test4: {
 	minLevel: 1,
 	maxLevel: 5,
 	unlocked: true
-    }
+},
+  my_test5: {
+  name: 'full_sample3',
+  pokes: ['sandshrew','vulpix','dratini','snorlax','kabuto','staryu','typhlosion','scizor','houndoom','kingdra','sneasel','swampert','camerupt','altaria','tropius',
+'torterra','luxio','bronzong','togekiss','riolu'],
+  minLevel: 30,
+  maxLevel: 40,
+  unlocked: true
+}
 }

@@ -1,298 +1,298 @@
 const EVOLUTIONS = {
-  "Bulbasaur":{
+  "bulbasaur":{
     "level":"16",
-    "to":"Ivysaur"
+    "to":"ivysaur"
   },
-  "Ivysaur":{
+  "ivysaur":{
     "level":"32",
-    "to":"Venusaur"
+    "to":"venusaur"
   },
-  "Charmander":{
+  "charmander":{
     "level":"16",
-    "to":"Charmeleon"
+    "to":"charmeleon"
   },
-  "Charmeleon":{
+  "charmeleon":{
     "level":"36",
-    "to":"Charizard"
+    "to":"charizard"
   },
-  "Squirtle":{
+  "squirtle":{
     "level":"16",
-    "to":"Wartortle"
+    "to":"wartortle"
   },
-  "Wartortle":{
+  "wartortle":{
     "level":"36",
-    "to":"Blastoise"
+    "to":"blastoise"
   },
-  "Caterpie":{
+  "caterpie":{
     "level":"7",
-    "to":"Metapod"
+    "to":"metapod"
   },
-  "Metapod":{
+  "metapod":{
     "level":"10",
-    "to":"Butterfree"
+    "to":"butterfree"
   },
-  "Weedle":{
+  "weedle":{
     "level":"7",
-    "to":"Kakuna"
+    "to":"kakuna"
   },
-  "Kakuna":{
+  "kakuna":{
     "level":"10",
-    "to":"Beedrill"
+    "to":"beedrill"
   },
-  "Pidgey":{
+  "pidgey":{
     "level":"18",
-    "to":"Pidgeotto"
+    "to":"pidgeotto"
   },
-  "Pidgeotto":{
+  "pidgeotto":{
     "level":"36",
-    "to":"Pidgeot"
+    "to":"pidgeot"
   },
-  "Rattata":{
+  "rattata":{
     "level":"20",
-    "to":"Raticate"
+    "to":"raticate"
   },
-  "Spearow":{
+  "spearow":{
     "level":"20",
-    "to":"Fearow"
+    "to":"fearow"
   },
-  "Ekans":{
+  "ekans":{
     "level":"22",
-    "to":"Arbok"
+    "to":"arbok"
   },
-  "Pikachu":{
+  "pikachu":{
     "level":"35",
-    "to":"Raichu"
+    "to":"raichu"
   },
-  "Sandshrew":{
+  "sandshrew":{
     "level":"22",
-    "to":"Sandslash"
+    "to":"sandslash"
   },
-  "Nidoran f":{
+  "nidoran f":{
     "level":"16",
-    "to":"Nidorina"
+    "to":"nidorina"
   },
-  "Nidorina":{
+  "nidorina":{
     "level":"35",
-    "to":"Nidoqueen"
+    "to":"nidoqueen"
   },
-  "Nidoran m":{
+  "nidoran m":{
     "level":"16",
-    "to":"Nidorino"
+    "to":"nidorino"
   },
-  "Nidorino":{
+  "nidorino":{
     "level":"35",
-    "to":"Nidoking"
+    "to":"nidoking"
   },
-  "Clefairy":{
+  "clefairy":{
     "level":"35",
-    "to":"Clefable"
+    "to":"clefable"
   },
-  "Vulpix":{
+  "vulpix":{
     "level":"35",
-    "to":"Ninetales"
+    "to":"ninetales"
   },
-  "Jigglypuff":{
+  "jigglypuff":{
     "level":"35",
-    "to":"Wigglytuff"
+    "to":"wigglytuff"
   },
-  "Zubat":{
+  "zubat":{
     "level":"22",
-    "to":"Golbat"
+    "to":"golbat"
   },
-  "Oddish":{
+  "oddish":{
     "level":"21",
-    "to":"Gloom"
+    "to":"gloom"
   },
-  "Gloom":{
+  "gloom":{
     "level":"35",
-    "to":"Vileplume"
+    "to":"vileplume"
   },
-  "Paras":{
+  "paras":{
     "level":"24",
-    "to":"Parasect"
+    "to":"parasect"
   },
-  "Venonat":{
+  "venonat":{
     "level":"31",
-    "to":"Venomoth"
+    "to":"venomoth"
   },
-  "Diglett":{
+  "diglett":{
     "level":"26",
-    "to":"Dugtrio"
+    "to":"dugtrio"
   },
-  "Meowth":{
+  "meowth":{
     "level":"28",
-    "to":"Persian"
+    "to":"persian"
   },
-  "Psyduck":{
+  "psyduck":{
     "level":"33",
-    "to":"Golduck"
+    "to":"golduck"
   },
-  "Mankey":{
+  "mankey":{
     "level":"28",
-    "to":"Primeape"
+    "to":"primeape"
   },
-   "Growlithe":{
+   "growlithe":{
     "level":"35",
-    "to":"Arcanine"
+    "to":"arcanine"
   },
-  "Poliwag":{
+  "poliwag":{
     "level":"25",
-    "to":"Poliwhirl"
+    "to":"poliwhirl"
   },
-  "Poliwhirl":{
+  "poliwhirl":{
     "level":"50",
-    "to":"Poliwrath"
+    "to":"poliwrath"
   },
-  "Abra":{
+  "abra":{
     "level":"16",
-    "to":"Kadabra"
+    "to":"kadabra"
   },
-  "Kadabra":{
+  "kadabra":{
     "level":"40",
-    "to":"Alakazam"
+    "to":"alakazam"
   },
-  "Machop":{
+  "machop":{
     "level":"28",
-    "to":"Machoke"
+    "to":"machoke"
   },
-  "Machoke":{
+  "machoke":{
     "level":"40",
-    "to":"Machamp"
+    "to":"machamp"
   },
-  "Bellsprout":{
+  "bellsprout":{
     "level":"21",
-    "to":"Weepinbell"
+    "to":"weepinbell"
   },
-  "Weepinbell":{
+  "weepinbell":{
     "level":"35",
-    "to":"Victreebel"
+    "to":"victreebel"
   },
-  "Tentacool":{
+  "tentacool":{
     "level":"30",
-    "to":"Tentacruel"
+    "to":"tentacruel"
   },
-  "Geodude":{
+  "geodude":{
     "level":"25",
-    "to":"Graveler"
+    "to":"graveler"
   },
-  "Graveler":{
+  "graveler":{
     "level":"40",
-    "to":"Golem"
+    "to":"golem"
   },
-  "Ponyta":{
+  "ponyta":{
     "level":"40",
-    "to":"Rapidash"
+    "to":"rapidash"
   },
-  "Slowpoke":{
+  "slowpoke":{
     "level":"37",
-    "to":"Slowbro"
+    "to":"slowbro"
   },
-  "Magnemite":{
+  "magnemite":{
     "level":"30",
-    "to":"Magneton"
+    "to":"magneton"
   },
-  "Doduo":{
+  "doduo":{
     "level":"31",
-    "to":"Dodrio"
+    "to":"dodrio"
   },
-  "Seel":{
+  "seel":{
     "level":"34",
-    "to":"Dewgong"
+    "to":"dewgong"
   },
-  "Grimer":{
+  "grimer":{
     "level":"38",
-    "to":"Muk"
+    "to":"muk"
   },
-  "Shellder":{
+  "shellder":{
     "level":"35",
-    "to":"Cloyster"
+    "to":"cloyster"
   },
-  "Gastly":{
+  "gastly":{
     "level":"25",
-    "to":"Haunter"
+    "to":"haunter"
   },
-  "Haunter":{
+  "haunter":{
     "level":"40",
-    "to":"Gengar"
+    "to":"gengar"
   },
-  "Drowzee":{
+  "drowzee":{
     "level":"26",
-    "to":"Hypno"
+    "to":"hypno"
   },
-  "Krabby":{
+  "krabby":{
     "level":"28",
-    "to":"Kingler"
+    "to":"kingler"
   },
-  "Voltorb":{
+  "voltorb":{
     "level":"30",
-    "to":"Electrode"
+    "to":"electrode"
   },
-   "Exeggcute":{
+   "exeggcute":{
     "level":"35",
-    "to":"Exeggutor"
+    "to":"exeggutor"
   },
-  "Cubone":{
+  "cubone":{
     "level":"28",
-    "to":"Marowak"
+    "to":"marowak"
   },
-  "Koffing":{
+  "koffing":{
     "level":"35",
-    "to":"Weezing"
+    "to":"weezing"
   },
-  "Rhyhorn":{
+  "rhyhorn":{
     "level":"42",
-    "to":"Rhydon"
+    "to":"rhydon"
   },
-  "Horsea":{
+  "horsea":{
     "level":"32",
-    "to":"Seadra"
+    "to":"seadra"
   },
-  "Goldeen":{
+  "goldeen":{
     "level":"33",
-    "to":"Seaking"
+    "to":"seaking"
   },
-  "Staryu":{
+  "staryu":{
     "level":"35",
-    "to":"Starmie"
+    "to":"starmie"
   },
-  "Magikarp":{
+  "magikarp":{
     "level":"20",
-    "to":"Gyarados"
+    "to":"gyarados"
   },
-  "Eevee":{
+  "eevee":{
     "level":"25",
-    "to":"Vaporeon"
+    "to":"vaporeon"
   },
-  "Eevee":{
+  "eevee":{
     "level":"27",
-    "to":"Jolteon"
+    "to":"jolteon"
   },
-  "Eevee":{
+  "eevee":{
     "level":"29",
-    "to":"Flareon"
+    "to":"flareon"
   },
-  "Omanyte":{
+  "omanyte":{
     "level":"40",
-    "to":"Omastar"
+    "to":"omastar"
   },
-  "Kabuto":{
+  "kabuto":{
     "level":"40",
-    "to":"Kabutops"
+    "to":"kabutops"
   },
-  "Dratini":{
+  "dratini":{
     "level":"30",
-    "to":"Dragonair"
+    "to":"dragonair"
   },
-  "Dragonair":{
+  "dragonair":{
     "level":"55",
-    "to":"Dragonite"
+    "to":"dragonite"
   },
-  "Chikorita":{
+  "chikorita":{
     "level":"16",
-    "to":"Bayleef"
+    "to":"bayleef"
   },
-  "Bayleef":{
+  "bayleef":{
     "level":"32",
-    "to":"Meganium"
+    "to":"meganium"
   }
 };
