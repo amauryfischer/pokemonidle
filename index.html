@@ -6,60 +6,58 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pokeidle</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
-  <link href="bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="font-awesome.min.css" media="screen" title="no title" charset="utf-8">
   <link rel="icon" type="image/png" href="http://puu.sh/uxvz7/eef94af5d2.png">
 </head>
 <body>
   <div id="gameContainer">
+
     <div id="areasList" class="container list">
-      <br>
-      <ul class="nav">
-        <ul class="list">
-        </ul>
+      <div id="regionSelectContainer">
+        <select id="regionSelect" onchange="userInteractions.changeRegion()">
+          <option value="Kanto">Kanto</option>
+          <option value="Johto">Johto</option>
+          <option value="Hoenn">Hoenn</option>
+          <option value="Sinnoh">Sinnoh</option>
+          <option value="Unova">Unova</option>
+          <option value="Kalos">Kalos (Custom)</option>
+          <option value="Alola">Alola (Custom)</option>
+          <option value="Event">Event</option>
+        </select>
+      </div>
+      <ul class="list">
       </ul>
     </div>
-<!-- experimental -->
-<div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
-</div>
 
-<!-- Use any element to open the sidenav -->
-<button onMouseOver="openNav()">open</button>
-
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-<div id="main">
-  ...
-</div>
-<script>
-/* Set the width of the side navigation to 250px */
-function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-}
-
-/* Set the width of the side navigation to 0 */
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-}
-</script>
-
-<!-- fin experimental -->
 
 
     <div id="playerPokes" class="container list">
       <div class="controls">
-        <input type="checkbox" id="enableDelete" ><span class="checkDescription">Manage Team</span>
-        <button type="button" name="button" id="heal">Heal</button>
+        <input type="checkbox" id="enableDelete"><label for="enableDelete"><span class="checkDescription">Manage Team</span></label><br>
+        <input type="checkbox" id="enablePokedex"><label for="enablePokedex"><span class="checkDescription" id="viewPokedexString">View Pokedex</span></label>
+        <div id="heal">Heal</div>
       </div>
-      <ul class = "nav">
-        <ul id="playerPokesList" class="list">
-        </ul>
-      </ul>
+      <div id="playerPokesList" class="list">
+        <select id="pokeSortOrderSelect" onchange="userInteractions.changePokeSortOrder()">
+          <option value="lvl">Level</option>
+          <option value="dex">Pokedex #</option>
+          <option value="vlv">Level, attack</option>
+        </select>
+        <select id="pokeSortDirSelect" onchange="userInteractions.changePokeSortOrder()">
+          <option value="asc">Asc</option>
+          <option value="desc">Desc</option>
+        </select>
+        <ul></ul>
+      </div>
+      <div id="playerPokeDex" class="list hidden">
+        <select id="dexView">
+          <option value="all">All</option>
+          <option value="missing">Missing</option>
+          <option value="shiny">Shiny</option>
+        </select>
+        <ul></ul>
+      </div>
     </div>
 
 
@@ -67,7 +65,7 @@ function closeNav() {
     <div id="enemy" class="container poke">
       <div class="inner">
         <span class="name"></span><br>
-        <img style="max-width:200px;max-height:200px" id="enemyImg" class="img" src="" alt=""><br>
+        <img id="enemyImg" class="img" src="" alt=""><br>
         <span class="hp"></span><br>
         <span>hp: </span>
         <progress class="hpBar" value="0" max="100"></progress><br>
@@ -76,19 +74,18 @@ function closeNav() {
         <span class="status"></span>
       </div>
       <div id="capture-options">
-        <input type="checkbox" id="enableCatch"><span>Try to catch</span>
+        Catch: <label><input type="checkbox" id="enableCatchAll"><span>All</span></label> <label><input type="checkbox" id="enableCatchNew"><span>New</span></label>
         <p>Using:</p>
-        <input type="radio" name="name" value="pokeball" checked="true" onclick="userInteractions.changeSelectedBall('pokeball')"><span>Pokeballs: </span><span class="ball-ammount pokeball">10</span><br>
-        <input type="radio" name="name" value="greatball" onclick="userInteractions.changeSelectedBall('greatball')"><span>Greatballs: </span><span class="ball-ammount greatball">0</span><br>
-        <input type="radio" name="name" value="ultraball" onclick="userInteractions.changeSelectedBall('ultraball')"><span>Ultraballs: </span><span class="ball-ammount ultraball">0</span><br>
-        <input type="radio" name="name" value="secretball" onclick="userInteractions.changeSelectedBall('secretball')"><span>Secretball: </span><span class="ball-ammount secretball">0</span><br>
+        <input type="radio" name="name" value="pokeball" checked="true" onclick="userInteractions.changeSelectedBall('pokeball')" id="pokeball"><label for="pokeball"><span>Pokeballs: </span><span class="ball-ammount pokeball">10</span></label><br>
+        <input type="radio" name="name" value="greatball" onclick="userInteractions.changeSelectedBall('greatball')" id="greatball"><label for="greatball"><span>Greatballs: </span><span class="ball-ammount greatball">0</span></label><br>
+        <input type="radio" name="name" value="ultraball" onclick="userInteractions.changeSelectedBall('ultraball')" id="ultraball"><label for="ultraball"><span>Ultraballs: </span><span class="ball-ammount ultraball">0</span></label><br>
       </div>
     </div>
 
     <div id="player" class="container poke">
       <div class="inner">
         <span class="name"></span><br>
-        <img style="max-width:200px;max-height:200px" id="playerImg" class="img" src="" alt=""><br>
+        <img id="playerImg" class="img" src="" alt=""><br>
         <span class="hp"></span><br>
         <span>hp: </span>
         <progress class="hpBar" value="0" max="100"></progress><br>
@@ -96,44 +93,74 @@ function closeNav() {
         <progress class="expBar" value="0" max="100"></progress>
         <br>
         <span class="status"></span>
+        <span class="spriteChoice">
+          <input type="radio" id="spriteChoiceBack" name="spriteChoice" onchange="userInteractions.changeSpriteChoice()" /><label for="spriteChoiceBack">Back</label>
+          <input type="radio" id="spriteChoiceFront" name="spriteChoice" onchange="userInteractions.changeSpriteChoice()" /><label for="spriteChoiceFront">Front</label>
+        </span>
       </div>
       <div id="console">
         <span class="console-text"></span>
       </div>
       <div id="playerBox">
-        <input type="checkbox" checked="true" id="enableConsole"><span>Enable console</span><br><br>
-        <button onclick="userInteractions.clearConsole()">Clear Console</button><br><br>
+        <input type="checkbox" checked="true" id="enableConsole"><span>Enable console</span><br>
+        <button onclick="userInteractions.clearConsole()">Clear Console</button>
+        <button onclick="userInteractions.viewStatistics()">View Stats</button>
+        <div id="saveLoadButtons">
+          <button onclick="userInteractions.exportSaveDialog()">Save</button>
+          <button onclick="userInteractions.importSaveDialog()">Load</button>
+        </div>
         <input type="checkbox" id="confirmClearData">
         <a href="#" style="color: red;" onclick="userInteractions.clearGameData()">Clear game data</a>
       </div>
     </div>
 
-    <span id="version">Version: NGGYU.10</span>
-    <a id="gitLink" href="https://github.com/RichardPaulAstley/richardpaulastley.github.io" target="_blank">GitHub</a>
+    <div id="saveDialogContainer" style="display: none">
+      <div id="saveDialog">
+        <div>
+          <button id="copySaveText" onclick="userInteractions.copySaveText()" style="display: none">Copy to clipboard</button>
+          <h3 id="saveDialogTitle">Export your save</h3>
+        </div>
+        <textarea id="saveText" placeholder="Paste the save data here"></textarea>
+        <div id="loadButtonContainer" style="display: none">
+          <button onclick="userInteractions.importSave()">Load</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="statisticsContainer" style="display: none">
+      <div id="statisticsDialog">
+        <div>
+          <h3 id="statisticsTitle">Statistics</h3>
+        </div>
+        <div>
+          <ul id="statisticsList"></ul>
+        </div>
+      </div>
+    </div>
+
+    <span id="version">Version: NGGYU NGLYD</span>
+    <a id="gitLink" href="https://github.com/RichardPaulAstley/richardpaulastley.github.io" target="_blank">Github</a>
     <a id="subLink" href="https://reddit.com/r/Pokeidle" target="_blank">Subreddit</a>
+    <a id="disLink" href="https://discord.gg/pt57KfB" target="_blank">Discord</a>
   </div>
 
   <!-- <script src="//cdn.jsdelivr.net/ramda/latest/ramda.min.js"></script> -->
-  <script src="pokedex1.js"></script>
-  <script src="pokedex2.js"></script>
-  <script src="pokedex3.js"></script>
-  <script src="pokedex4.js"></script>
-  <script src="pokedex5.js"></script>
+  <script src="db.js"></script>
   <script src="evolutions.js"></script>
   <script src="typeModifiers.js"></script>
   <script src="routes.js"></script>
   <script src="main.js"></script>
 
   <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-    ga('create', 'UA-77979253-2', 'auto');
-    ga('send', 'pageview');
+  ga('create', 'UA-103615179-1', 'auto');
+  ga('send', 'pageview');
 
-  </script>
-
+</script>
+  
 </body>
 </html>

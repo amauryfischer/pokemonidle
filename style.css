@@ -5,10 +5,10 @@ body {
 #gameContainer {
   font-family: 'Lato', sans-serif;
   color: #111111;
-  width: 90%;
+  width: 800px;
   margin: auto;
   background-color: rgb(82, 153, 228);
-  height: 90%;
+  height: 625px;
   padding: 10px;
   border-radius: 3px;
   box-shadow: 0 0 10px black;
@@ -48,6 +48,15 @@ ul {
   border-bottom: solid 1px rgb(7, 0, 90);
 }
 
+#player.frontSprite #playerImg {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
 .poke .inner .img.attacked-right{
   margin-left: 15px;
 }
@@ -59,8 +68,6 @@ ul {
   margin-left: 0px;
   margin-right: 0px;
 }
-
-
 
 .poke .inner .name {
   font-size: 18px;
@@ -89,16 +96,28 @@ ul {
   float: right;
   min-height: none;
   max-height: none;
-  height: 40em;
+  height: 600px;
   border-radius: 0 5px 5px 5px;
-  width: 20em;
+  width: 190px;
   text-align: right;
+}
+
+#areasList #regionSelectContainer {
+	padding: 5px 10px 0;
+}
+
+#areasList .list {
   overflow-y: auto;
   overflow-x: hidden;
+  height: 558px;
+}
+
+#areasList #regionSelect {
+  width: 100%;
 }
 
 #areasList li,#areasList a {
-  margin-right: 2 px;
+  margin-right: 6px;
 }
 
 #enemy .status, #enemy .expBar {
@@ -119,8 +138,7 @@ ul {
 
 #playerPokes {
   float: left;
-  height: 40em;
-  width: 20em;
+  height: 600px;
   overflow: hidden;
   text-align: center;
   text-align: left;
@@ -135,21 +153,81 @@ ul {
   position: relative;
 }
 
-#playerPokesList {
+#dexView {
+  margin-left: 8px;
+}
+
+.pokeDex0 {
+  color: #808080;
+}
+.pokeDex1 {
+  color: #38375a;
+}
+.pokeDex2 {
+  color: #99844b;
+}
+.pokeDex3, .pokeDex5 {
+  color: rgba(42, 55, 190, 0.5);
+}
+.pokeDex4, .pokeDex7 {
+  color: rgba(192, 160, 0, 0.5);
+}
+.pokeDex3, .pokeDex4 {
+  font-style: italic;
+}
+.pokeDex6, .pokeDex8 {
+  font-weight: bold;
+}
+.pokeDex6 {
+  color: #2a37be;
+}
+.pokeDex8 {
+  color: #c0a000;
+}
+
+#playerPokesList ul, #playerPokeDex ul {
   position: relative;
-  padding-left: 2px;
+  padding-left: 8px;
   overflow-y: auto;
   overflow-x: hidden;
-  height: 40em;
+  height: 495px;
 }
 
 #heal {
-  display: block;
-  width: 100px;
-  height: 30px;
-  margin: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  font-size: 14px;
+  margin: 5px;
+}
+
+.pokeDeleteButton,
+.pokeUpButton,
+.pokeDownButton,
+.pokeFirstButton,
+.pokeEvolveButton {
+  display: none;
+}
+
+#playerPokesList ul li:first-child .pokeUpButton,
+#playerPokesList ul li:last-child .pokeDownButton {
+  display: none;
+}
+
+.manageTeamEnabled .pokeDeleteButton,
+.manageTeamEnabled .pokeUpButton,
+.manageTeamEnabled .pokeDownButton,
+.manageTeamEnabled .pokeFirstButton,
+.manageTeamEnabled .canEvolve ~ .pokeEvolveButton {
+  display: inline;
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.pokeListName {
+  text-decoration: none;
+}
+
+.pokeListName.activePoke {
+  border: solid 1px rgb(139, 142, 4);
+  border-radius: 2px;
 }
 
 #console {
@@ -174,26 +252,79 @@ ul {
 }
 
 #playerBox button {
-  margin-left: 10px;
-  width: 150px;
+    margin-top: 7px;
+    width: 125px;
+    margin-right: 5px;
 }
 
-#gitLink  {
-  position: absolute;
-  top: 620px;
-  left: 450px;
+#saveLoadButtons {
+  margin-bottom: 7px;
 }
 
-#subLink  {
-  position: absolute;
-  top: 620px;
-  left: 520px;
+
+#saveDialogContainer, #statisticsContainer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(0, 0, 0, 0.8);
+  z-index: 2;
+}
+
+#saveDialog, #statisticsDialog {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 10vh;
+  bottom: 10vh;
+  left: 10vw;
+  right: 10vw;
+  padding: 10px;
+  background-color: rgb(217, 217, 217);
+  border: solid 1px rgb(10, 0, 130);
+  box-shadow: 0 0 3px rgb(10, 0, 130);
+  border-radius: 5px;
+}
+
+#saveDialogTitle, #statisticsTitle {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0 0 10px;
+}
+
+#copySaveText {
+  float: right;
+  margin-top: 2px;
+}
+
+#saveText {
+  flex: 1 1 auto;
+}
+
+
+#gitLink {
+	position: absolute;
+	top: 620px;
+	left: 750px;
+}
+
+#subLink {
+	position: absolute;
+	top: 620px;
+	left: 670px;
+}
+
+#disLink {
+	position: absolute;
+	top: 620px;
+	left: 600px;
 }
 
 #version {
   position: absolute;
   top: 620px;
-  left: 300px;
+  left: 270px;
 }
 
 
@@ -279,85 +410,7 @@ progress {
 progress.expBar {
   width: 120px;
 }
-.nav {
-    width: auto;
-    height: auto;
-    margin-left: 10px;
-    margin-top: 3px;
-    list-style: none
-}
-.nav a,
-p.link a {
-    text-decoration: none;
-}
-.nav li {
-    text-align: justify;
-    width: 200px;
-    padding: 4px;
-    transition: all .2s linear;
-    background-color: #000;
-    border: 1px solid #333
-}
 
-.nav a {
-    color: #fff
-}
-
-.nav li:hover {
-    -moz-transform: translate(30px, 00px);
-    -webkit-transform: translate(30px, 00px);
-    transform: translate(30px, 00px);
-    background: -webkit-gradient(linear, 80% 20%, 10% 21%, from(#00d2d2), to(#d200d2));
-    background: -ms-gradient(linear, 80% 20%, 10% 21%, from(#D20000), to(#610028));
-    background: -moz-gradient(linear, 80% 20%, 10% 21%, from(#D20000), to(#610028))
-}
-/** experimental **/
-/* The side navigation menu */
-.sidenav {
-    height: 100%; /* 100% Full-height */
-    width: 0; /* 0 width - change this with JavaScript */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Stay on top */
-    top: 0;
-    left: 0;
-    background-color: #111; /* Black*/
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 60px; /* Place content 60px from the top */
-    transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
-
-/* The navigation menu links */
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
-}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-}
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-    transition: margin-left .5s;
-    padding: 20px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-    .sidenav {padding-top: 15px;}
-    .sidenav a {font-size: 18px;}
+.hidden {
+  display: none;
 }
