@@ -499,7 +499,7 @@ const makePlayer = () => {
     pokeball: 20,
     greatball: 0,
     ultraball: 0,
-    masterball: 100
+    masterball: 0
   }
 
   const canHeal = () => {
