@@ -15,7 +15,7 @@
 
 <body>
   <div id="gameContainer">
-      <div id="roadManage" style="width:0%;position:absolute;overflow:hidden;">
+      <div id="roadManage" style="width:25%;position:absolute;overflow:hidden;">
         <div class="btn-group">
           <button onclick="closeRoad()" class="btn btn-danger">close road</button>
         </div>
@@ -36,7 +36,7 @@
           </ul>
         </div>
       </div>
-      <div id="contextMain" style="width:100%;position:absolute;overflow:hidden;">
+      <div id="contextMain" style="width:50%;margin-left:25%;position:absolute;overflow:hidden;">
         <div class="btn-group text-center">
           <button class="btn btn-primary" onclick="openRoad()">Show road</button>
           <button class="btn btn-warning" onclick="openTeam()">Show Team</button>
@@ -124,8 +124,13 @@
             </div>
           </div>
         </div>
+            <span id="version">Version: NGGYU NGLYD</span>
+            <br>
+            <a id="gitLink" href="https://github.com/RichardPaulAstley/richardpaulastley.github.io" target="_blank">Github</a>
+            <a id="subLink" href="https://reddit.com/r/Pokeidle" target="_blank">Subreddit</a>
+            <a id="disLink" href="https://discord.gg/pt57KfB" target="_blank">Discord</a>
       </div>
-      <div id="teamManage" style="width:0%;position:absolute;overflow:hidden;">
+      <div id="teamManage" style="width:25%;margin-left:75%;position:absolute;overflow:hidden;">
         <div class="btn-group">
           <button onclick="closeTeam()" class="btn btn-danger">close team</button>
         </div>
@@ -157,11 +162,6 @@
           </div>
         </div>
       </div>
-
-    <span id="version">Version: NGGYU NGLYD</span>
-    <a id="gitLink" href="https://github.com/RichardPaulAstley/richardpaulastley.github.io" target="_blank">Github</a>
-    <a id="subLink" href="https://reddit.com/r/Pokeidle" target="_blank">Subreddit</a>
-    <a id="disLink" href="https://discord.gg/pt57KfB" target="_blank">Discord</a>
   </div>
 
   <!-- <script src="//cdn.jsdelivr.net/ramda/latest/ramda.min.js"></script> -->
@@ -217,7 +217,6 @@
           document.getElementById('contextMain').style.width = "75%";
         }
         document.getElementById('teamManage').style.width = "25%";
-        document.getElementById('teamManage').style.marginLeft = "75%";
       }
     }
     function closeTeam() {
