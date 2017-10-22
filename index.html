@@ -188,17 +188,28 @@
 </script>
 <script>
     function openRoad() {
-      document.getElementById('contextMain').style.marginLeft = "400px";
-      document.getElementById('roadManage').style.width = "400px";
+      if (document.getElementById('contextMain').style.width == "80%") {
+        document.getElementById('contextMain').style.width = "60%"
+      } else {
+        document.getElementById('contextMain').style.width = "80%"
+      }
+      document.getElementById('contextMain').style.marginLeft = "20%";
+      document.getElementById('roadManage').style.width = "20%";
     }
     function reset() {
-      document.getElementById('contextMain').style.marginLeft = "0px";
-      document.getElementById('roadManage').style.width = "0px";
-      document.getElementById('teamManage').style.width = "0px";
+      document.getElementById('contextMain').style.width = "100%";
+      document.getElementById('roadManage').style.width = "0%";
+      document.getElementById('teamManage').style.width = "0%";
+      document.getElementById('contextMain').style.marginLeft = "0%";
     }
     function openTeam() {
-      document.getElementById('contextMain').style.marginLeft = "400px";
-      document.getElementById('teamManage').style.width = "400px";
+      if (document.getElementById('contextMain').style.width == "80%") {
+        document.getElementById('contextMain').style.width = "60%"
+      } else {
+        document.getElementById('contextMain').style.width = "80%"
+      }
+      document.getElementById('teamManage').style.width = "20%";
+      document.getElementById('teamManage').style.marginLeft = "80%";
     }
   </script>
 </body>

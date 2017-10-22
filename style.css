@@ -281,19 +281,16 @@ ul {
 
 
 #gitLink {
-	position: absolute;
 	top: 620px;
 	left: 750px;
 }
 
 #subLink {
-	position: absolute;
 	top: 620px;
 	left: 670px;
 }
 
 #disLink {
-	position: absolute;
 	top: 620px;
 	left: 600px;
 }
