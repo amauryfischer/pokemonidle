@@ -491,13 +491,15 @@ const makePlayer = () => {
   const ballsRngs = {
     pokeball: 1,
     greatball: 1.5,
-    ultraball: 2
+    ultraball: 2,
+    megaball: 3
   }
   var selectedBall = "pokeball"
   var ballsAmmount = {
     pokeball: 20,
     greatball: 0,
-    ultraball: 0
+    ultraball: 0,
+    megaball: 0
   }
 
   const canHeal = () => {
@@ -717,7 +719,7 @@ const makePlayer = () => {
     }
   , selectedBall: () => selectedBall
   , bestAvailableBall: () => {
-      const ballsFromBestToWorst = ['ultraball', 'greatball', 'pokeball']
+      const ballsFromBestToWorst = ['megaball','ultraball', 'greatball', 'pokeball']
       for (var i = 0; i < ballsFromBestToWorst.length; i++) {
         if (ballsAmmount[ballsFromBestToWorst[i]] > 0) {
           return ballsFromBestToWorst[i];
@@ -1053,8 +1055,14 @@ const makeCombatLoop = (enemy, player, dom) => {
           }
         }
 
-        const ballsAmmount = Math.floor(Math.random() * 10) + 1
-        const ballName = randomArrayElement(['pokeball', 'pokeball', 'pokeball', 'pokeball', 'pokeball', 'pokeball', 'greatball', 'greatball', 'ultraball'])
+        const ballsAmmount = Math.floor(Math.random()*(3)) + 1
+        var randomBallArray = [];
+        var i=0;
+        for (i = 0; i < 70; i += 1) { randomBallArray.push('pokeball') };
+        for (i = 0; i < 20; i += 1) { randomBallArray.push('greatball') };
+        for (i = 0; i < 9; i += 1) { randomBallArray.push('ultraball') };
+        for (i = 0; i < 1; i += 1) { randomBallArray.push('megaball') };
+        const ballName = randomArrayElement(randomBallArray)
         const rngHappened2 =
           RNG(
             player.addBalls.bind(
