@@ -5624,7 +5624,7 @@ const POKEDEX = [
       ],
       "stats": [
          {
-            "catch rate": "45",
+            "catch rate": "3",
             "growth rate": "Medium Slow",
             "hp": "100",
             "attack": "100",
@@ -9372,7 +9372,7 @@ const POKEDEX = [
       ],
       "stats": [
          {
-            "catch rate": "45",
+            "catch rate": "3",
             "growth rate": "Medium Slow",
             "hp": "100",
             "attack": "100",
@@ -14284,7 +14284,7 @@ const POKEDEX = [
       ],
       "stats": [
          {
-            "catch rate": "5",
+            "catch rate": "3",
             "growth rate": "Slow",
             "hp": "100",
             "attack": "100",
@@ -14321,7 +14321,7 @@ const POKEDEX = [
       ],
       "stats": [
          {
-            "catch rate": "5",
+            "catch rate": "3",
             "growth rate": "Slow",
             "hp": "100",
             "attack": "150",
@@ -29148,7 +29148,7 @@ const POKEDEX = [
             "speed": "96",
             "types": [
                "Ghost",
-			   "Fairy"	
+			   "Fairy"
             ]
          }
       ],
@@ -32994,7 +32994,7 @@ const POKEDEX = [
          {
             "catch rate": "60",
             "growth rate": "Medium Slow",
-            "hp": "105",					
+            "hp": "105",
             "attack": "30",
             "defense": "105",
             "sp atk": "140",
@@ -33330,7 +33330,7 @@ const POKEDEX = [
          {
             "Pokemon": "Aegislash-B"
          }
-      ], 
+      ],
       "stats": [
          {
             "catch rate": "45",
@@ -33368,7 +33368,7 @@ const POKEDEX = [
          {
             "Pokemon": "Zygarde-10"
          }
-      ], 					
+      ],
       "stats": [
          {
             "catch rate": "3",
@@ -33406,7 +33406,7 @@ const POKEDEX = [
          {
             "Pokemon": "Zygarde-C"
          }
-      ], 					
+      ],
       "stats": [
          {
             "catch rate": "3",
@@ -33498,7 +33498,7 @@ const POKEDEX = [
                "Dark"
             ]
          }
-      ], 	
+      ],
       "exp": [
          {
             "base exp": "270"
@@ -33521,7 +33521,7 @@ const POKEDEX = [
             "Pokemon": "Lycanroc-M"
          }
       ],
-      "stats": [ 
+      "stats": [
          {
             "catch rate": "90",
             "growth rate": "Medium Fast",
