@@ -699,7 +699,7 @@ const POKEDEX = [
       ],
       "exp": [
          {
-            "base exp": "5100000"
+            "base exp": "51"
          }
       ],
       "images": {
