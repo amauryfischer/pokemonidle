@@ -1,18 +1,7 @@
 body {
-  background-color: rgb(219, 219, 219);
 }
 
 #gameContainer {
-  font-family: 'Lato', sans-serif;
-  color: #111111;
-  width: 800px;
-  margin: auto;
-  background-color: rgb(82, 153, 228);
-  height: 625px;
-  padding: 10px;
-  border-radius: 3px;
-  box-shadow: 0 0 10px black;
-  position: relative;
 }
 
 ul {
@@ -24,10 +13,8 @@ ul {
 
 .container {
   display: block;
+  width: initial;
   position: relative;
-  width: 160px;
-  min-height: 100px;
-  max-height: 400px;
   background-color: rgb(217, 217, 217);
   border: solid 1px rgb(10, 0, 130);
   box-shadow: 0 0 3px rgb(10, 0, 130);
@@ -35,12 +22,12 @@ ul {
 }
 
 .poke .inner {
-  position: relative;
+  position:absolute
   line-height: 25px;
   font-size: 12px;
   text-align: center;
-  width: 165px;
-  float: left;
+  width: 40%;
+  height: 90%
 }
 
 #player .inner {
@@ -75,35 +62,30 @@ ul {
 }
 
 #enemy {
-  float: right;
   border-radius: 10px 0 0 10px;
-  border-right: none;
-  width: 370px;
+  width: 100%;
 }
 
 #enemy .inner {
-  float: right;
 }
 
 #capture-options {
-  float: left;
   width: 190px;
   box-sizing: border-box;
-  padding: 10px;
 }
 
 #areasList {
-  float: right;
+  padding: 0px;
+  width: 100%;
+  margin: 0px;
   min-height: none;
   max-height: none;
   height: 600px;
   border-radius: 0 5px 5px 5px;
-  width: 190px;
   text-align: right;
 }
 
 #areasList #regionSelectContainer {
-	padding: 5px 10px 0;
 }
 
 #areasList .list {
@@ -121,6 +103,7 @@ ul {
 }
 
 #enemy .status, #enemy .expBar {
+  float: right;
   display: none;
 }
 
@@ -128,18 +111,14 @@ ul {
 #player {
   float: left;
   border-radius: 0 10px 10px 0;
-  border-left: none;
-  position: absolute;
-  top: 270px;
-  left: 172px;
-  width: 438px;
+  width: 100%;
   height: 340px;
 }
 
 #playerPokes {
-  float: left;
+  padding: 0px;
+  width: 100%;
   height: 600px;
-  overflow: hidden;
   text-align: center;
   text-align: left;
   max-height: 600px;
@@ -187,7 +166,6 @@ ul {
 
 #playerPokesList ul, #playerPokeDex ul {
   position: relative;
-  padding-left: 8px;
   overflow-y: auto;
   overflow-x: hidden;
   height: 495px;
@@ -217,8 +195,6 @@ ul {
 .manageTeamEnabled .pokeFirstButton,
 .manageTeamEnabled .canEvolve ~ .pokeEvolveButton {
   display: inline;
-  padding-left: 3px;
-  padding-right: 3px;
 }
 
 .pokeListName {
@@ -231,11 +207,11 @@ ul {
 }
 
 #console {
-    float: left;
-    width: 259px;
-    height: 220px;
+    position:absolute;
+    margin-left: 40%;
+    width: 57%;
+    height: 60%;
     box-sizing: border-box;
-    padding-left: 9px;
     overflow: scroll;
     border-bottom: solid 1px black;
 }
@@ -246,9 +222,13 @@ ul {
 
 
 #playerBox {
-    width: 265px;
-    height: 109px;
-    float: right;
+    position: absolute;
+    margin-left: 40%;
+    width: 57%;
+    height: 40%;
+    box-sizing: border-box;
+    border-bottom: solid 1px black;
+    margin-top: 15em;
 }
 
 #playerBox button {
@@ -280,7 +260,6 @@ ul {
   bottom: 10vh;
   left: 10vw;
   right: 10vw;
-  padding: 10px;
   background-color: rgb(217, 217, 217);
   border: solid 1px rgb(10, 0, 130);
   box-shadow: 0 0 3px rgb(10, 0, 130);
@@ -290,11 +269,9 @@ ul {
 #saveDialogTitle, #statisticsTitle {
   flex: 0 0 auto;
   margin: 0;
-  padding: 0 0 10px;
 }
 
 #copySaveText {
-  float: right;
   margin-top: 2px;
 }
 
