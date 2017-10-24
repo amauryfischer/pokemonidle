@@ -44,6 +44,8 @@ const RNG = (func, chance) => {
   }
   return false
 }
+document.getElementById('regionSelect').innerHTML='<option value="Kanto">Kanto</option>';
+
 
 const cloneJsonObject = (object) => JSON.parse(JSON.stringify(object))
 const randomArrayElement = (array) => array[Math.floor(Math.random() * array.length)]
@@ -105,6 +107,7 @@ const makeDomHandler = () => {
     var listValue = '';
     function findFlag(obj){ return (this == obj.name) }
     for(var y = 0; y < POKEDEX.length; y++) {
+
       var dexEntry = dexData.find(findFlag, POKEDEX[y].pokemon[0].Pokemon)
       if (typeof dexEntry == 'undefined')
         dexEntry = {name: '', flag: 0}
@@ -117,6 +120,9 @@ const makeDomHandler = () => {
       }
     }
     setValue(listElement, listValue, false)
+    if (document.getElementById('regionSelect').innerHTML.indexOf("Johto")==-1 && dexData.length==151) {
+      document.getElementById('regionSelect').innerHTML+="<option value=\"Johto\">Johto</option>"
+    }
   }
   const healElement = $('#heal')
   const renderHeal = (canHeal) => {
@@ -743,7 +749,7 @@ const makeEnemy = (starter) => {
       poke,
       recipe.minLevel + Math.round((Math.random() * (recipe.maxLevel - recipe.minLevel))),
       false,
-      Math.random() < (1 / (1 << 5 << 8))
+      Math.random() <(1 / (1 << 5 << 8))
     )
   }
 

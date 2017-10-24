@@ -240,7 +240,7 @@ const POKEDEX = [
             "defense": "65",
             "sp atk": "50",
             "sp def": "64",
-            "speed": "43",
+            "speed": "43", 
             "types": [
                "Water"
             ]
