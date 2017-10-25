@@ -44,7 +44,9 @@ const RNG = (func, chance) => {
   }
   return false
 }
-//document.getElementById('regionSelect').innerHTML='<option value="Kanto">Kanto</option>';
+
+//Kanto initialization in the list
+document.getElementById('regionSelect').innerHTML='<option value="Kanto">Kanto</option>';
 
 
 const cloneJsonObject = (object) => JSON.parse(JSON.stringify(object))
@@ -120,9 +122,9 @@ const makeDomHandler = () => {
       }
     }
     setValue(listElement, listValue, false);
-    /**if (document.getElementById('regionSelect').innerHTML.indexOf("Johto")==-1 && dexData.length==151) {
+    if (document.getElementById('regionSelect').innerHTML.indexOf("Johto")==-1 && dexData.length==151) {
       document.getElementById('regionSelect').innerHTML+="<option value=\"Johto\">Johto</option>";
-    }**/
+    }
   }
   const healElement = $('#heal')
   const renderHeal = (canHeal) => {
