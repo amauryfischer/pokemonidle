@@ -44,7 +44,7 @@ const RNG = (func, chance) => {
   }
   return false
 }
-document.getElementById('regionSelect').innerHTML='<option value="Kanto">Kanto</option>';
+//document.getElementById('regionSelect').innerHTML='<option value="Kanto">Kanto</option>';
 
 
 const cloneJsonObject = (object) => JSON.parse(JSON.stringify(object))
@@ -119,10 +119,10 @@ const makeDomHandler = () => {
         listValue += '<li class="pokeDex' + dexEntry.flag + '">' + (y + 1) + ' ' + POKEDEX[y].pokemon[0].Pokemon + '</li>';
       }
     }
-    setValue(listElement, listValue, false)
-    if (document.getElementById('regionSelect').innerHTML.indexOf("Johto")==-1 && dexData.length==151) {
-      document.getElementById('regionSelect').innerHTML+="<option value=\"Johto\">Johto</option>"
-    }
+    setValue(listElement, listValue, false);
+    /**if (document.getElementById('regionSelect').innerHTML.indexOf("Johto")==-1 && dexData.length==151) {
+      document.getElementById('regionSelect').innerHTML+="<option value=\"Johto\">Johto</option>";
+    }**/
   }
   const healElement = $('#heal')
   const renderHeal = (canHeal) => {
@@ -999,7 +999,7 @@ const makeCombatLoop = (enemy, player, dom) => {
       attackingTypes[1] && typeEffectiveness(attackingTypes[1], defendingTypes) || 0
      )
   }
-  const eventTimerActive = true
+  const eventTimerActive = false
   const eventTimerExpires = 1508889600
 
   const dealDamage = (attacker, defender, who) => {
