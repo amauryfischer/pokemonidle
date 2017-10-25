@@ -301,7 +301,7 @@ const makeDomHandler = () => {
   }
   const renderBalls = (ballsAmmount) => {
     Object.keys(ballsAmmount).forEach(ballType => {
-      $('.ball-ammount.' + ballType).innerHTML = ballsAmmount[ballType]
+      $('.ball-ammount.' + ballType).innerHTML = ballsAmmount[ballType];
     })
   }
   const bindEvents = () => {
