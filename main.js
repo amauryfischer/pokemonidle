@@ -124,7 +124,16 @@ const makeDomHandler = () => {
     setValue(listElement, listValue, false);
     if (document.getElementById('regionSelect').innerHTML.indexOf("Johto")==-1 && dexData.length==151) {
       document.getElementById('regionSelect').innerHTML+="<option value=\"Johto\">Johto</option>";
-    }
+    }//Unlock Johto region if the 151 pokemons of Kanto are captured
+    if(document.getElementById('regionSelect').innerHTML.indexOf("Hoenn")==-1 && dexData.length==251) {
+      document.getElementById('regionSelect').innerHTML+="<option value=\"Hoenn\">Hoenn</option>"
+    } //Unlock Hoenn region if all the pokemons of Kanto and Johto are captured
+    if(document.getElementById('regionSelect').innerHTML.indexOf("Sinnoh")==-1 && dexData.length==152) {
+      document.getElementById('regionSelect').innerHTML+="<option value=\"Sinnoh\">Sinnoh</option>"
+    } //Unlock Hoenn region if all the pokemons of Kanto, Johto and Hoenn are captured
+    if(document.getElementById('regionSelect').innerHTML.indexOf("Unova")==-1 && dexData.length==387) {
+      document.getElementById('regionSelect').innerHTML+="<option value=\"Unova\">Unova</option>"
+    } //Unlock Hoenn region if all the pokemons of Kanto, Johto, Hoenn and Sinnoh are captured
   }
   const healElement = $('#heal')
   const renderHeal = (canHeal) => {
