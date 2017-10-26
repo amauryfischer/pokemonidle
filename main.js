@@ -7,6 +7,46 @@
 */
 'use strict'
 
+$(document).ready(function() {
+  var activeSystemClass = $('.list-group-item.active');
+
+  //something is entered in search form
+  $('#system-search2').keyup(function() {
+    var that = this;
+    // affect all table rows on in systems table
+    var tableBody = $('.table-list-search2 tbody');
+    var tableRowsClass = $('.table-list-search2 tbody tr');
+    $('.search-sf').remove();
+    tableRowsClass.each(function(i, val) {
+
+      //Lower text for case insensitive
+      var rowText = $(val).text().toLowerCase();
+      var inputText = $(that).val().toLowerCase();
+      if (inputText != '') {
+        $('.search-query-sf2').remove();
+        tableBody.prepend('<tr class="search-query-sf2"><td colspan="6"><strong>Searching for: "' +
+          $(that).val() +
+          '"</strong></td></tr>');
+      } else {
+        $('.search-query-sf2').remove();
+      }
+
+      if (rowText.indexOf(inputText) == -1) {
+        //hide rows
+        tableRowsClass.eq(i).hide();
+
+      } else {
+        $('.search-sf2').remove();
+        tableRowsClass.eq(i).show();
+      }
+    });
+    //all tr elements are hidden
+    if (tableRowsClass.children(':visible').length == 0) {
+      tableBody.append('<tr class="search-sf2"><td class="text-muted" colspan="6">No entries found.</td></tr>');
+    }
+  });
+});
+
 const pokeById = (id) => POKEDEX[id - 1]
 const pokeByName = (name) => POKEDEX.filter((el) => el.pokemon[0].Pokemon === name)[0]
 
@@ -48,7 +88,7 @@ const RNG = (func, chance) => {
 //Kanto initialization in the list
 document.getElementById('regionSelect').innerHTML='<option value="Kanto">Kanto</option>';
 
-
+debugger
 const cloneJsonObject = (object) => JSON.parse(JSON.stringify(object))
 const randomArrayElement = (array) => array[Math.floor(Math.random() * array.length)]
 
@@ -169,7 +209,7 @@ const makeDomHandler = () => {
   const renderPokeList = (id, list, player, deleteEnabledId) => {
     const listCssQuery = '.container.list' + '#' + id
     const listContainer = $(listCssQuery)
-    const listElement = listContainer.querySelector('#playerPokesList ul')
+    const listElement = listContainer.querySelector('#playerPokesList table tbody')
     const deleteEnabled = deleteEnabledId && $(deleteEnabledId).checked
     listElement.className = 'list' + (checkConfirmed('#enablePokedex') ? ' hidden' : '') + (deleteEnabled ? ' manageTeamEnabled' : '')
     var listElementsToAdd = ''
@@ -224,7 +264,7 @@ const makeDomHandler = () => {
             Evolve
           </button>`
 
-        listElementsToAdd += `<li id="listPoke${index}">` +
+        listElementsToAdd += `<tr><td id="listPoke${index}">` +
           deleteButton +
           `<a
               href="#"
@@ -239,7 +279,7 @@ const makeDomHandler = () => {
           downButton +
           firstButton +
           evolveButton +
-          `</li>`
+          `</td></tr>`
       }
     })
     if (listElementsToAdd.length > 0) {
@@ -1072,7 +1112,7 @@ const makeCombatLoop = (enemy, player, dom) => {
           }
         }
 
-        const ballsAmmount = Math.floor(Math.random()*(3)) + 1
+        const ballsAmmount = Math.floor(Math.random()*(0)) + 1
         var randomBallArray = [];
         var i=0;
         for (i = 0; i < 700; i += 1) { randomBallArray.push('pokeball') };
