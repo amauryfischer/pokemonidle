@@ -88,7 +88,6 @@ const RNG = (func, chance) => {
 //Kanto initialization in the list
 document.getElementById('regionSelect').innerHTML='<option value="Kanto">Kanto</option>';
 
-debugger
 const cloneJsonObject = (object) => JSON.parse(JSON.stringify(object))
 const randomArrayElement = (array) => array[Math.floor(Math.random() * array.length)]
 
@@ -197,7 +196,7 @@ const makeDomHandler = () => {
         }
       } else {
         if (poke.shiny()) {
-          return 'rgb(255, 255, 76)'
+          return 'rgb(255, 200, 76)'
         } else {
           return 'rgb(66, 116, 10)'
         }
@@ -256,6 +255,7 @@ const makeDomHandler = () => {
           >
             #1
           </button>`
+
 
         const evolveButton = `<button href="#"
             onclick="userInteractions.evolvePokemon('${index}')"
