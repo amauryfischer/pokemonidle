@@ -256,6 +256,13 @@ const makeDomHandler = () => {
             #1
           </button>`
 
+     const lastButton = `<button href="#"
+            onclick="userInteractions.pokemonToLast('${index}')"
+            class="pokeLastButton"
+          >
+            #last
+          </button>`
+
 
         const evolveButton = `<button href="#"
             onclick="userInteractions.evolvePokemon('${index}')"
@@ -279,6 +286,7 @@ const makeDomHandler = () => {
           downButton +
           firstButton +
           evolveButton +
+          lastButton +
           `</td></tr>`
       }
     })
@@ -919,6 +927,18 @@ const makeUserInteractions = (player, enemy, dom, combatLoop) => {
 		  combatLoop.changePlayerPoke(player.activePoke())
 		  renderView(dom, enemy, player)
 	  },
+
+    pokemonToLast: (pokemonIndex) => {
+      const moveToLast = (index, arr) => {
+        arr.splice(arr.length-1, 0, arr.splice(index, 1)[0])
+      }
+
+      moveToLast(pokemonIndex, player.pokemons())
+      player.savePokes()
+      combatLoop.changePlayerPoke(player.activePoke())
+      renderView(dom, enemy, player)
+    },
+
 	  pokemonToDown: (pokemonIndex) => {
 		  const moveToDown = index => arr => [
 			  ...arr.slice(0,parseInt(index)),
