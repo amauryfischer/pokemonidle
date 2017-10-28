@@ -88,6 +88,7 @@ const RNG = (func, chance) => {
 //Kanto initialization in the list
 document.getElementById('regionSelect').innerHTML='<option value="Kanto">Kanto</option>';
 
+
 const cloneJsonObject = (object) => JSON.parse(JSON.stringify(object))
 const randomArrayElement = (array) => array[Math.floor(Math.random() * array.length)]
 
