@@ -208,9 +208,9 @@ ul {
 
 #console {
     position:absolute;
-    margin-left:0ex; /*40ex;*/
-    width:0ex; /*30ex;*/
-    height: 0ex; /*28ex;*/
+    margin-left:-10ex;
+    width:30ex;
+    height: 28ex;
     box-sizing: border-box;
     overflow: scroll;
     border-bottom: solid 1px black;
@@ -227,6 +227,7 @@ ul {
   float: left;
 }
 .tab label {
+  border-radius: 7px;
   background: #aaa;
   padding: 10px;
   border: 1px solid #ccc;
@@ -238,6 +239,7 @@ ul {
   display: none;
 }
 .content {
+  border-radius: 7px;
   position: absolute;
   top: 6ex;
   left: 38ex;
