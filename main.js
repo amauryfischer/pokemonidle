@@ -395,20 +395,20 @@ const makeDomHandler = () => {
   }
   const gameConsoleLog = (text, color) => {
     var logElement;
-    if (text.includes("Attacked")) {
-      logElement  = $('#console #consoleFight #contentFight');
+    if (text.includes("Attacked") && document.getElementById('tab-1').checked==true) {
+      logElement  = $('#consoleFight #contentFight');
     }
-    else if (text.includes("won")) {
-      logElement = $('#console #consoleInfo #contentInfo');
+    else if (text.includes("won") && text.includes("xp") && document.getElementById('tab-2').checked==true) {
+      logElement = $('#consoleInfo #contentInfo');
     }
-    else if (text.includes("Trying") || text.includes("escaped") || text.includes("caught")) {
-      logElement = $('#console #consoleCatch #contentCatch');
+    else if (text.includes("Trying") || text.includes("escaped") || text.includes("caught") && document.getElementById('tab-3').checked==true) {
+      logElement = $('#consoleCatch #contentCatch');
     }
-    else if (text.includes("ball")) {
-      logElement = $('#console #consoleBall #contentBall');
+    else if (text.includes("ball") && document.getElementById('tab-4').checked==true) {
+      logElement = $('#consoleBall #contentBall');
     }
-    else {
-      logElement = $('#console #consoleAll #contentAll');
+   else {
+      logElement = $('#consoleAll #contentAll');
     }
 
     if ($('#enableConsole').checked) {
