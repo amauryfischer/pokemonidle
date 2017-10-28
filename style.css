@@ -242,21 +242,24 @@ td, th {
   width: 15%;
 }
 .tab label {
-  border-radius: 7px;
-  background: #aaa;
+  background: #eee;
   padding: 10px;
   border: 1px solid #ccc;
+  margin-left: -1px;
   position: relative;
+  left: 1px;
 }
 .tab [type=radio] {
   display: none;
 }
 .content {
-  width: 100%;
-  height: 100%;
   border-radius: 7px;
   background: orange;
   border: 1px solid #ccc;
+  position: absolute;
+  height: 20ex;
+  margin-top: 10%;
+  overflow: scroll;
 }
 [type=radio]:checked ~ label {
   background: white;
