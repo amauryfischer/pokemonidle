@@ -6,10 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pokeidle</title>
+  <link rel="stylesheet" href="bootstrap.css">
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="font-awesome.min.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="bootstrap.css">
   <link rel="icon" type="image/png" href="http://puu.sh/uxvz7/eef94af5d2.png">
   <script src="jquery-3.1.1.min.js"></script>
 </head>
@@ -36,8 +36,12 @@
               <option value=\"Kanto\">Kanto</option>
             </select>
         </div>
-        <ul class="list">a
-        </ul>
+        <div style="overflow:scroll">
+        <table>
+          <tbody class="list">
+          </tbody>
+        </table>
+      </div>
       </div>
     </div>
 
@@ -138,6 +142,13 @@
             </div>
           </div>
 
+          <div class="credits" style="position:absolute;margin-left:40%;margin-top:50%">
+            <span id="version">Version: NGGYU NGLYD</span>
+            <br>
+            <a id="gitLink" href="https://github.com/RichardPaulAstley/richardpaulastley.github.io" target="_blank">Github</a>
+            <a id="subLink" href="https://reddit.com/r/Pokeidle" target="_blank">Subreddit</a>
+            <a id="disLink" href="https://discord.gg/pt57KfB" target="_blank">Discord</a>
+          </div>
 
         </div>
       </div>
@@ -199,11 +210,7 @@
         </div>
       </div>
     </div>
-    <span id="version">Version: NGGYU NGLYD</span>
-    <br>
-    <a id="gitLink" href="https://github.com/RichardPaulAstley/richardpaulastley.github.io" target="_blank">Github</a>
-    <a id="subLink" href="https://reddit.com/r/Pokeidle" target="_blank">Subreddit</a>
-    <a id="disLink" href="https://discord.gg/pt57KfB" target="_blank">Discord</a>
+
     <!-- <script src="//cdn.jsdelivr.net/ramda/latest/ramda.min.js"></script> -->
     <script src="db.js"></script>
     <script src="evolutions.js"></script>
