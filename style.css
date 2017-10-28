@@ -1,7 +1,12 @@
+html{
+  height: 100%;
+}
 body {
+  height: 100%;
 }
 
 #gameContainer {
+  height: 100%;
 }
 
 ul {
@@ -27,7 +32,7 @@ ul {
   font-size: 12px;
   text-align: center;
   width: 40%;
-  height: 90%
+  height: 100%;
 }
 
 #player .inner {
@@ -110,6 +115,7 @@ ul {
 
 #player {
   float: left;
+  padding: 0px;
   border-radius: 0 10px 10px 0;
   width: 100%;
   height: 340px;
@@ -207,45 +213,42 @@ ul {
 }
 
 #console {
-    margin-left:0ex;
-    width:30ex;
-    height: 28ex;
-    box-sizing: border-box;
-    overflow: scroll;
-    border-bottom: solid 1px black;
-}
-
-.tabs {
   position: absolute;
-  min-height: 1ex;
-  min-width: 40ex;
-  clear: both;
-  margin: 2ex 0ex;
+  margin-left: 0ex;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: scroll;
+  border-bottom: solid 1px black;
+}
+.playerControl{
+  position: absolute;
+  margin-left: 40%;
+  width: 60%;
+  height: 100%;
+}
+.tabs {
+  width: 100%;
+  height: 60%;
+  position:absolute;
 }
 .tab {
-  float: left;
+  height: 20%;
+  width: 15%;
 }
 .tab label {
   border-radius: 7px;
   background: #aaa;
   padding: 10px;
   border: 1px solid #ccc;
-  margin-left: 0ex;
   position: relative;
-  left: 40ex;
 }
 .tab [type=radio] {
   display: none;
 }
 .content {
   border-radius: 7px;
-  position: absolute;
-  top: 6ex;
-  left: 38ex;
   background: orange;
-  right: 0ex;
-  bottom: 0ex;
-  padding: 26ex;
   border: 1px solid #ccc;
 }
 [type=radio]:checked ~ label {
@@ -264,18 +267,14 @@ ul {
 
 
 #console .console-text {
-
+  margin-top: 10%;
 }
 
 
 #playerBox {
-    position: absolute;
-    margin-left: 40%;
-    width: 57%;
-    height: 40%;
+    margin-top: 60%;
     box-sizing: border-box;
     border-bottom: solid 1px black;
-    margin-top: 15em;
 }
 
 #playerBox button {

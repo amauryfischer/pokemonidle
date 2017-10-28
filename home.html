@@ -42,109 +42,108 @@
     </div>
 
 
-    <div id="contextMain" style="width:50%;margin-left:25%;position:absolute;overflow:hidden;">
-      <div class="btn-group text-center">
+    <div id="contextMain" style="width:50%;margin-left:25%;height:100%;position:absolute;overflow:hidden;">
+      <div class="btn-group text-center" style="position:absolute;width:100%;">
         <button class="btn btn-primary" onclick="openRoad()">Show road</button>
         <button class="btn btn-warning" onclick="openTeam()">Show Team</button>
       </div>
-      <div id="enemy" class="container poke">
-        <div style="float:right" class="inner">
-          <span class="name"></span><br>
-          <img id="enemyImg" class="img" src="" alt=""><br>
-          <span class="hp"></span><br>
-          <span>hp: </span>
-          <progress class="hpBar" value="0" max="100"></progress><br>
-          <progress class="expBar" value="0" max="100"></progress>
-          <br>
-          <span class="status"></span>
-        </div>
-        <div style="float:left" id="capture-options">
-          Catch: <label><input class="checkbox"  type="checkbox" id="enableCatchAll"><span>All</span></label> <label><input class="checkbox"  type="checkbox" id="enableCatchNew"><span>New</span></label>
-          <p>Using:</p>
-          <input type="radio" name="name" value="pokeball" checked="true" onclick="userInteractions.changeSelectedBall('pokeball')" id="pokeball"><label for="pokeball"><span>Pokeballs: </span><span class="ball-ammount pokeball">10</span></label><br>
-          <input type="radio" name="name" value="greatball" onclick="userInteractions.changeSelectedBall('greatball')" id="greatball"><label for="greatball"><span>Greatballs: </span><span class="ball-ammount greatball">0</span></label><br>
-          <input type="radio" name="name" value="ultraball" onclick="userInteractions.changeSelectedBall('ultraball')" id="ultraball"><label for="ultraball"><span>Ultraballs: </span><span class="ball-ammount ultraball">0</span></label><br>
-          <input type="radio" name="name" value="masterball" onclick="userInteractions.changeSelectedBall('masterball')" id="masterball"><label for="masterball"><span>Masterballs: </span><span class="ball-ammount masterball">0</span></label><br>
-        </div>
-      </div>
-
-      <div id="player" class="container poke">
-        
-        <div class="inner" style="position:absolute">
-          <span class="name"></span><br>
-          <img id="playerImg" class="img" src="" alt=""><br>
-          <span class="hp"></span><br>
-          <span>hp: </span>
-          <progress class="hpBar" value="0" max="100"></progress><br>
-          <span>xp: </span>
-          <progress class="expBar" value="0" max="100"></progress>
-          <br>
-          <span class="status"></span>
-          <span class="spriteChoice">
-                  <input type="radio" id="spriteChoiceBack" name="spriteChoice" onchange="userInteractions.changeSpriteChoice()" /><label for="spriteChoiceBack">Back</label>
-                  <input type="radio" id="spriteChoiceFront" name="spriteChoice" onchange="userInteractions.changeSpriteChoice()" /><label for="spriteChoiceFront">Front</label>
-                </span>
+      <div class="playersContainer" style="position: absolute;width: 100%;height: 100%;margin-top: 5%;">
+        <div id="enemy" class="container poke" style="position: absolute;width: 100%;height: 50%;">
+          <div style="float:right" class="inner">
+            <span class="name"></span><br>
+            <img id="enemyImg" class="img" src="" alt=""><br>
+            <span class="hp"></span><br>
+            <span>hp: </span>
+            <progress class="hpBar" value="0" max="100"></progress><br>
+            <progress class="expBar" value="0" max="100"></progress>
+            <br>
+            <span class="status"></span>
+          </div>
+          <div style="float:left" id="capture-options">
+            Catch: <label><input class="checkbox"  type="checkbox" id="enableCatchAll"><span>All</span></label> <label><input class="checkbox"  type="checkbox" id="enableCatchNew"><span>New</span></label>
+            <p>Using:</p>
+            <input type="radio" name="name" value="pokeball" checked="true" onclick="userInteractions.changeSelectedBall('pokeball')" id="pokeball"><label for="pokeball"><span>Pokeballs: </span><span class="ball-ammount pokeball">10</span></label><br>
+            <input type="radio" name="name" value="greatball" onclick="userInteractions.changeSelectedBall('greatball')" id="greatball"><label for="greatball"><span>Greatballs: </span><span class="ball-ammount greatball">0</span></label><br>
+            <input type="radio" name="name" value="ultraball" onclick="userInteractions.changeSelectedBall('ultraball')" id="ultraball"><label for="ultraball"><span>Ultraballs: </span><span class="ball-ammount ultraball">0</span></label><br>
+            <input type="radio" name="name" value="masterball" onclick="userInteractions.changeSelectedBall('masterball')" id="masterball"><label for="masterball"><span>Masterballs: </span><span class="ball-ammount masterball">0</span></label><br>
+          </div>
         </div>
 
-        <div class="tabs">
+        <div id="player" class="container poke" style="position: absolute;width: 100%;margin-top: 40%;height: 56%;">
 
-          <div class="tab">
-            <input type="radio" id="tab-1" name="tab-group-1" checked>
-            <label for="tab-1">Fight</label>
+          <div class="inner" style="position:absolute">
+            <span class="name"></span><br>
+            <img id="playerImg" class="img" src="" alt=""><br>
+            <span class="hp"></span><br>
+            <span>hp: </span>
+            <progress class="hpBar" value="0" max="100"></progress><br>
+            <span>xp: </span>
+            <progress class="expBar" value="0" max="100"></progress>
+            <br>
+            <span class="status"></span>
+            <span class="spriteChoice">
+                    <input type="radio" id="spriteChoiceBack" name="spriteChoice" onchange="userInteractions.changeSpriteChoice()" /><label for="spriteChoiceBack">Back</label>
+                    <input type="radio" id="spriteChoiceFront" name="spriteChoice" onchange="userInteractions.changeSpriteChoice()" /><label for="spriteChoiceFront">Front</label>
+                  </span>
+          </div>
+          <div class="playerControl">
+            <div class="tabs">
 
-            <div class="content">
-              Test
-              <div id="console" style="position:fixed">
+              <div class="tab" style="position:absolute;">
+                <input type="radio" id="tab-1" name="tab-group-1" checked>
+                <label for="tab-1">Fight</label>
+
+              </div>
+
+              <div class="tab" style="position:absolute;margin-left:15%">
+                <input type="radio" id="tab-2" name="tab-group-1">
+                <label for="tab-2">Info</label>
+              </div>
+              <div id="console" style="position:absolute">
                 <span class="console-text"></span>
+                <div class="contentInfo" style="position: absolute;height: 80%;margin-top: 10%;">
+                </div>
+
+                <div class="contentFight" style="position: absolute;height: 80%;margin-top: 10%;">
+                </div>
               </div>
             </div>
 
-            <div class="tab">
-              <input type="radio" id="tab-2" name="tab-group-1">
-              <label for="tab-2">Info</label>
+            <div id="playerBox">
+              <div class="btn-group">
+                <input class="checkbox" type="checkbox" checked="true" id="enableConsole"><span>Enable console</span><br>
+                <input class="checkbox" type="checkbox" id="confirmClearData">
+                <a href="#" style="color: red;" onclick="userInteractions.clearGameData()">Clear game data</a>
+              </div>
+              <div class="btn-group">
+                <button class="btn btn-default btn-sm" onclick="userInteractions.clearConsole()">Clear Console</button>
+                <button class="btn btn-default btn-sm" onclick="userInteractions.viewStatistics()">View Stats</button>
+                <div id="saveLoadButtons">
+                  <button class="btn btn-default btn-sm" onclick="userInteractions.exportSaveDialog()">Save</button>
+                  <button class="btn btn-default btn-sm" onclick="userInteractions.importSaveDialog()">Load</button>
+                </div>
+              </div>
 
-              <div class="content">
-                Test2
+            </div>
+          </div>
+
+          <div id="saveDialogContainer" style="display: none">
+            <div id="saveDialog">
+              <div>
+                <button class="btn btn-default" id="copySaveText" onclick="userInteractions.copySaveText()" style="display: none">Copy to clipboard</button>
+                <h3 id="saveDialogTitle">Export your save</h3>
+              </div>
+              <textarea id="saveText" placeholder="Paste the save data here"></textarea>
+              <div id="loadButtonContainer" style="display: none">
+                <button class="btn btn-default" onclick="userInteractions.importSave()">Load</button>
               </div>
             </div>
+          </div>
 
-          </div>
-          <div id="console" style="position:absolute">
-            <span class="console-text"></span>
-          </div>
-          <div id="playerBox" style="position:absolute">
-            <div class="btn-group">
-              <input class="checkbox" type="checkbox" checked="true" id="enableConsole"><span>Enable console</span><br>
-              <input class="checkbox" type="checkbox" id="confirmClearData">
-              <a href="#" style="color: red;" onclick="userInteractions.clearGameData()">Clear game data</a>
-            </div>
-            <div class="btn-group">
-              <button class="btn btn-default btn-sm" onclick="userInteractions.clearConsole()">Clear Console</button>
-              <button class="btn btn-default btn-sm" onclick="userInteractions.viewStatistics()">View Stats</button>
-              <div id="saveLoadButtons">
-                <button class="btn btn-default btn-sm" onclick="userInteractions.exportSaveDialog()">Save</button>
-                <button class="btn btn-default btn-sm" onclick="userInteractions.importSaveDialog()">Load</button>
-              </div>
-            </div>
 
-          </div>
         </div>
-
-        <div id="saveDialogContainer" style="display: none">
-          <div id="saveDialog">
-            <div>
-              <button class="btn btn-default" id="copySaveText" onclick="userInteractions.copySaveText()" style="display: none">Copy to clipboard</button>
-              <h3 id="saveDialogTitle">Export your save</h3>
-            </div>
-            <textarea id="saveText" placeholder="Paste the save data here"></textarea>
-            <div id="loadButtonContainer" style="display: none">
-              <button class="btn btn-default" onclick="userInteractions.importSave()">Load</button>
-            </div>
-          </div>
-        </div>
-
-
       </div>
+
     </div>
 
 
@@ -152,7 +151,7 @@
       <div class="btn-group">
         <button onclick="closeTeam()" class="btn btn-danger">close team</button>
       </div>
-      <div id="playerPokes" class="container list">
+      <div id="playerPokes" class="container list" style="height:100%">
         <div class="controls">
           <div class="btn-group">
             <input class="checkbox" type="checkbox" id="enableDelete"><label for="enableDelete"><span class="checkDescription">Manage Team</span></label>

@@ -342,7 +342,7 @@ const makeDomHandler = () => {
     window.setTimeout(() => toAnimate.classList = 'img', 80)
   }
   const gameConsoleLog = (text, color) => {
-    const logElement = $('#console .console-text')
+    const logElement = $('#console .contentInfo')
     if ($('#enableConsole').checked) {
       if (color) {
         logElement.innerHTML = '<span style="color:' + color + ';">' + text + '</span>' + '<br>' + logElement.innerHTML
@@ -357,7 +357,7 @@ const makeDomHandler = () => {
     }
   }
   const gameConsoleClear = () => {
-    $('#console .console-text').innerHTML = ''
+    $('#console .contentInfo').innerHTML = ''
   }
   const renderBalls = (ballsAmmount) => {
     Object.keys(ballsAmmount).forEach(ballType => {
