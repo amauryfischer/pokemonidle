@@ -208,13 +208,59 @@ ul {
 
 #console {
     position:absolute;
-    margin-left: 40%;
-    width: 57%;
-    height: 60%;
+    margin-left:0ex; /*40ex;*/
+    width:0ex; /*30ex;*/
+    height: 0ex; /*28ex;*/
     box-sizing: border-box;
     overflow: scroll;
     border-bottom: solid 1px black;
 }
+
+.tabs {
+  position: absolute;
+  min-height: 1ex;
+  min-width: 40ex;
+  clear: both;
+  margin: 2ex 0ex;
+}
+.tab {
+  float: left;
+}
+.tab label {
+  background: #aaa;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-left: 0ex;
+  position: relative;
+  left: 40ex;
+}
+.tab [type=radio] {
+  display: none;
+}
+.content {
+  position: absolute;
+  top: 6ex;
+  left: 38ex;
+  background: orange;
+  right: 0ex;
+  bottom: 0ex;
+  padding: 26ex;
+  border: 1px solid #ccc;
+}
+[type=radio]:checked ~ label {
+  background: white;
+  border-bottom: 1px solid white;
+  z-index: 2;
+}
+[type=radio]:checked ~ label ~ .content {
+  z-index: 1;
+}
+
+
+
+
+
+
 
 #console .console-text {
 
