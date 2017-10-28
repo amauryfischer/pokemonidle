@@ -15,7 +15,9 @@ ul {
   -webkit-margin-before: 0em;
   -webkit-margin-after: 0 em;
 }
-
+td, th {
+    padding: 0.4em;
+}
 .container {
   display: block;
   width: initial;
@@ -186,6 +188,7 @@ ul {
 .pokeUpButton,
 .pokeDownButton,
 .pokeFirstButton,
+.pokeLastButton,
 .pokeEvolveButton {
   display: none;
 }
@@ -199,9 +202,11 @@ ul {
 .manageTeamEnabled .pokeUpButton,
 .manageTeamEnabled .pokeDownButton,
 .manageTeamEnabled .pokeFirstButton,
+.manageTeamEnabled .pokeLastButton,
 .manageTeamEnabled .canEvolve ~ .pokeEvolveButton {
   display: inline;
 }
+
 
 .pokeListName {
   text-decoration: none;
