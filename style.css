@@ -129,7 +129,6 @@ td, th {
   height: 600px;
   text-align: center;
   text-align: left;
-  max-height: 600px;
 }
 
 #playerPokes .checkDescription {
@@ -260,11 +259,6 @@ td, th {
   height: 20ex;
   margin-top: 10%;
   overflow: scroll;
-}
-[type=radio]:checked ~ label {
-  background: white;
-  border-bottom: 1px solid white;
-  z-index: 2;
 }
 [type=radio]:checked ~ label ~ .content {
   z-index: 1;

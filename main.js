@@ -225,7 +225,9 @@ const makeDomHandler = () => {
         renderView(dom, enemy, player)
     }
     if (typeof canHeal === 'number') {
-      setValue(healElement, 'Heal: ' + Math.floor(((canHeal/30000)*100)) + '%')
+      let percentage = Math.floor(((canHeal/30000)*100));
+      let htmlrender = "<div class=\"progress-bar progress-bar-success active\" role=\"progressbar\" aria-valuenow=\""+percentage.toString()+"\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:"+percentage.toString()+"%\">"+"<div style=\"color: black;\">Heal&nbsp"+percentage.toString()+"%"+"</div></div>";
+      setValue(healElement, htmlrender)
     }
   }
   const pokeColor = (poke) => {
