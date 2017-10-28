@@ -242,6 +242,7 @@ td, th {
   width: 15%;
 }
 .tab label {
+  border-radius:10px;
   background: #eee;
   padding: 10px;
   border: 1px solid #ccc;

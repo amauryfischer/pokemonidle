@@ -397,8 +397,18 @@ const makeDomHandler = () => {
     var logElement;
     if (text.includes("Attacked")) {
       logElement  = $('#console #consoleFight #contentFight');
-    } else {
+    }
+    else if (text.includes("won")) {
       logElement = $('#console #consoleInfo #contentInfo');
+    }
+    else if (text.includes("Trying") || text.includes("escaped") || text.includes("caught")) {
+      logElement = $('#console #consoleCatch #contentCatch');
+    }
+    else if (text.includes("ball")) {
+      logElement = $('#console #consoleBall #contentBall');
+    }
+    else {
+        logElement = $('#console #consoleFight #contentFight');
     }
     if ($('#enableConsole').checked) {
       if (color) {
