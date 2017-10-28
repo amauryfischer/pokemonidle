@@ -7,9 +7,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Pokeidle</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="bootstrap.css">
   <link rel="stylesheet" href="style.css" media="screen" title="no title" charset="utf-8">
   <link rel="stylesheet" href="font-awesome.min.css" media="screen" title="no title" charset="utf-8">
-  <link rel="stylesheet" href="bootstrap.css">
+
   <link rel="icon" type="image/png" href="http://puu.sh/uxvz7/eef94af5d2.png">
   <script src="jquery-3.1.1.min.js"></script>
 </head>
@@ -35,6 +36,14 @@
           <select class="dropdown-toggle" id="regionSelect" onchange="userInteractions.changeRegion()">
               <option value=\"Kanto\">Kanto</option>
             </select>
+            <input class="form-control2" id="system-search1" name="q" placeholder="Search..." required>
+          </div>
+          <div style="overflow: scroll;height: 38em;width: 23em;">
+            <table class="table-list-search1">
+              <tbody class="list">
+              </tbody>
+            </table>
+          </div>
         </div>
         <ul class="list">a
         </ul>

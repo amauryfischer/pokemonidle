@@ -47,6 +47,46 @@ $(document).ready(function() {
   });
 });
 
+$(document).ready(function() {
+  var activeSystemClass = $('.list-group-item.active');
+
+  //something is entered in search form
+  $('#system-search1').keyup(function() {
+    var that = this;
+    // affect all table rows on in systems table
+    var tableBody = $('.table-list-search1 tbody');
+    var tableRowsClass = $('.table-list-search1 tbody tr');
+    $('.search-sf').remove();
+    tableRowsClass.each(function(i, val) {
+
+      //Lower text for case insensitive
+      var rowText = $(val).text().toLowerCase();
+      var inputText = $(that).val().toLowerCase();
+      if (inputText != '') {
+        $('.search-query-sf2').remove();
+        tableBody.prepend('<tr class="search-query-sf2"><td colspan="6"><strong>Searching for: "' +
+          $(that).val() +
+          '"</strong></td></tr>');
+      } else {
+        $('.search-query-sf2').remove();
+      }
+
+      if (rowText.indexOf(inputText) == -1) {
+        //hide rows
+        tableRowsClass.eq(i).hide();
+
+      } else {
+        $('.search-sf2').remove();
+        tableRowsClass.eq(i).show();
+      }
+    });
+    //all tr elements are hidden
+    if (tableRowsClass.children(':visible').length == 0) {
+      tableBody.append('<tr class="search-sf2"><td class="text-muted" colspan="6">No entries found.</td></tr>');
+    }
+  });
+});
+
 const pokeById = (id) => POKEDEX[id - 1]
 const pokeByName = (name) => POKEDEX.filter((el) => el.pokemon[0].Pokemon === name)[0]
 
@@ -258,6 +298,13 @@ const makeDomHandler = () => {
             #1
           </button>`
 
+     const lastButton = `<button href="#"
+            onclick="userInteractions.pokemonToLast('${index}')"
+            class="pokeLastButton"
+          >
+            #last
+          </button>`
+
 
         const evolveButton = `<button href="#"
             onclick="userInteractions.evolvePokemon('${index}')"
@@ -281,6 +328,7 @@ const makeDomHandler = () => {
           downButton +
           firstButton +
           evolveButton +
+          lastButton +
           `</td></tr>`
       }
     })
@@ -303,9 +351,13 @@ const makeDomHandler = () => {
     setValue(listElement, '')
     Object.keys(routes).forEach((routeId) => {
       const route = routes[routeId]
+      let listpok = "";
+      for (var i in route.pokes) {
+        listpok += "<td>"+route.pokes[i]+"</td>"
+      }
       setValue(
         listElement
-      , `<li>
+      , `<tr><td>
           <a
           href="#"
           onclick="${route.unlocked
@@ -325,10 +377,10 @@ const makeDomHandler = () => {
                           || 'normal'
                           };
            "
-           >
+           ><div style="width:8em">
              ${route.name + ' (' + route.minLevel + '~' + route.maxLevel + ')'}
-           </a>
-        <li>`
+           </div></a>
+        ${listpok}</td><tr>`
       , true
       )
     })
@@ -922,6 +974,18 @@ const makeUserInteractions = (player, enemy, dom, combatLoop) => {
 		  combatLoop.changePlayerPoke(player.activePoke())
 		  renderView(dom, enemy, player)
 	  },
+
+    pokemonToLast: (pokemonIndex) => {
+      const moveToLast = (index, arr) => {
+        arr.splice(arr.length-1, 0, arr.splice(index, 1)[0])
+      }
+
+      moveToLast(pokemonIndex, player.pokemons())
+      player.savePokes()
+      combatLoop.changePlayerPoke(player.activePoke())
+      renderView(dom, enemy, player)
+    },
+
 	  pokemonToDown: (pokemonIndex) => {
 		  const moveToDown = index => arr => [
 			  ...arr.slice(0,parseInt(index)),
