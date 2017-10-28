@@ -254,7 +254,7 @@ td, th {
 }
 .content {
   border-radius: 7px;
-  background: orange;
+  background: rgb(217, 217, 217);
   border: 1px solid #ccc;
   position: absolute;
   height: 20ex;
