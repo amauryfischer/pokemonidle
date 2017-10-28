@@ -161,6 +161,7 @@ const makeDomHandler = () => {
       }
     }
     setValue(listElement, listValue, false);
+    document.getElementById('nbalreadyowned').innerHTML = dexData.length.toString()
     if (document.getElementById('regionSelect').innerHTML.indexOf("Johto")==-1 && dexData.length>=151) {
       document.getElementById('regionSelect').innerHTML+="<option value=\"Johto\">Johto</option>";
     }//Unlock Johto region if the 151 pokemons of Kanto are captured
@@ -196,7 +197,7 @@ const makeDomHandler = () => {
         }
       } else {
         if (poke.shiny()) {
-          return 'rgb(255, 200, 76)'
+          return 'rgb(0, 227, 236)'
         } else {
           return 'rgb(66, 116, 10)'
         }
@@ -264,7 +265,7 @@ const makeDomHandler = () => {
             Evolve
           </button>`
 
-        listElementsToAdd += `<tr><td id="listPoke${index}">` +
+        listElementsToAdd += `<tr id="listPoke${index}"><td>` +
           deleteButton +
           `<a
               href="#"
@@ -288,6 +289,7 @@ const makeDomHandler = () => {
     var i = list.length
     var listItemToRemove
     while (listItemToRemove = listElement.querySelector('#listPoke' + i)) {
+      debugger;
       listElement.removeChild(listItemToRemove)
       i++
     }
@@ -851,7 +853,7 @@ const makeUserInteractions = (player, enemy, dom, combatLoop) => {
       renderView(dom, enemy, player)
     },
     deletePokemon: (event, index) => {
-      if (event.shiftKey) {
+      //if (event.shiftKey) {
         const pokemon = player.pokemons()[index];
         player.deletePoke(index)
         if (!player.hasPokemon(pokemon.pokeName()))
@@ -859,9 +861,9 @@ const makeUserInteractions = (player, enemy, dom, combatLoop) => {
         combatLoop.changePlayerPoke(player.activePoke())
         renderView(dom, enemy, player)
         player.savePokes()
-      } else {
+      /**} else {
         alert('Hold shift while clicking the X to release a pokemon')
-      }
+      }**/
     },
     healAllPlayerPokemons: () => {
       if (player.healAllPokemons() === "healed") {
