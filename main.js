@@ -327,8 +327,8 @@ const makeDomHandler = () => {
           upButton +
           downButton +
           firstButton +
-          evolveButton +
           lastButton +
+          evolveButton +
           `</td></tr>`
       }
     })
