@@ -408,8 +408,9 @@ const makeDomHandler = () => {
       logElement = $('#console #consoleBall #contentBall');
     }
     else {
-        logElement = $('#console #consoleFight #contentFight');
+      logElement = $('#console #consoleAll #contentAll');
     }
+
     if ($('#enableConsole').checked) {
       if (color) {
         logElement.innerHTML = '<span style="color:' + color + ';">' + text + '</span>' + '<br>' + logElement.innerHTML
