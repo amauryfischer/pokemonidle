@@ -394,7 +394,12 @@ const makeDomHandler = () => {
     window.setTimeout(() => toAnimate.classList = 'img', 80)
   }
   const gameConsoleLog = (text, color) => {
-    const logElement = $('#console .contentInfo')
+    var logElement;
+    if (text.includes("Attacked")) {
+      logElement  = $('#console #consoleFight #contentFight');
+    } else {
+      logElement = $('#console #consoleInfo #contentInfo');
+    }
     if ($('#enableConsole').checked) {
       if (color) {
         logElement.innerHTML = '<span style="color:' + color + ';">' + text + '</span>' + '<br>' + logElement.innerHTML
