@@ -214,9 +214,16 @@ const makeDomHandler = () => {
     if(document.getElementById('regionSelect').innerHTML.indexOf("Sinnoh")==-1 && dexData.length>=386) {
       document.getElementById('regionSelect').innerHTML+="<option value=\"Sinnoh\">Sinnoh</option>"
     } //Unlock Hoenn region if all the pokemons of Kanto, Johto and Hoenn are captured
-    if(document.getElementById('regionSelect').innerHTML.indexOf("Unova")==-1 && dexData.length>=387) {
+    if(document.getElementById('regionSelect').innerHTML.indexOf("Unova")==-1 && dexData.length>=493) {
       document.getElementById('regionSelect').innerHTML+="<option value=\"Unova\">Unova</option>"
-    } //Unlock Hoenn region if all the pokemons of Kanto, Johto, Hoenn and Sinnoh are captured
+    } //Unlock Unova region if all the pokemons of Kanto, Johto, Hoenn and Sinnoh are captured
+    if(document.getElementById('regionSelect').innerHTML.indexOf("Kalos")==-1 && dexData.length>=649) {
+      document.getElementById('regionSelect').innerHTML+="<option value=\"Kalos\">Kalos</option>"
+    } //Unlock Kalos region if all the pokemons of Kanto, Johto, Hoenn, Sinnoh, and Unova are captured
+    if(document.getElementById('regionSelect').innerHTML.indexOf("Alola")==-1 && dexData.length>=649) {
+      document.getElementById('regionSelect').innerHTML+="<option value=\"Alola\">Alola</option>"
+    }
+      //Unlock Alola region if all the pokemons of Kanto, Johto, Hoenn, Sinnoh and Unova are captured
   }
   const healElement = $('#heal')
   const renderHeal = (canHeal) => {
@@ -1227,9 +1234,9 @@ const makeCombatLoop = (enemy, player, dom) => {
         const ballsAmmount = Math.floor(Math.random()*(0)) + 1
         var randomBallArray = [];
         var i=0;
-        for (i = 0; i < 700; i += 1) { randomBallArray.push('pokeball') };
-        for (i = 0; i < 200; i += 1) { randomBallArray.push('greatball') };
-        for (i = 0; i < 90; i += 1) { randomBallArray.push('ultraball') };
+        for (i = 0; i < 7000; i += 1) { randomBallArray.push('pokeball') };
+        for (i = 0; i < 2000; i += 1) { randomBallArray.push('greatball') };
+        for (i = 0; i < 900; i += 1) { randomBallArray.push('ultraball') };
         for (i = 0; i < 5; i += 1) { randomBallArray.push('masterball') };
         const ballName = randomArrayElement(randomBallArray)
         const rngHappened2 =
