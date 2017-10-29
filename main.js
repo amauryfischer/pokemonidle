@@ -992,7 +992,7 @@ const makeUserInteractions = (player, enemy, dom, combatLoop) => {
     clearGameData: () => {
       if (dom.checkConfirmed('#confirmClearData')) {
         let normalRate = (1 / (1 << 5 << 8));
-        let growRate = (1 / 10*(1 << 5 << 8));
+        let growRate = (1 / (30*(1 << 5 << 8)));
         let shinyCaught = JSON.parse(localStorage.statistics).shinyCaught;
         let savedShinyRate = localStorage.getItem('shinyRate')
         if (savedShinyRate) {
