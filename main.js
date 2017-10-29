@@ -1213,9 +1213,9 @@ const makeCombatLoop = (enemy, player, dom) => {
         const ballsAmmount = Math.floor(Math.random()*(0)) + 1
         var randomBallArray = [];
         var i=0;
-        for (i = 0; i < 700; i += 1) { randomBallArray.push('pokeball') };
-        for (i = 0; i < 200; i += 1) { randomBallArray.push('greatball') };
-        for (i = 0; i < 90; i += 1) { randomBallArray.push('ultraball') };
+        for (i = 0; i < 7000; i += 1) { randomBallArray.push('pokeball') };
+        for (i = 0; i < 2000; i += 1) { randomBallArray.push('greatball') };
+        for (i = 0; i < 900; i += 1) { randomBallArray.push('ultraball') };
         for (i = 0; i < 5; i += 1) { randomBallArray.push('masterball') };
         const ballName = randomArrayElement(randomBallArray)
         const rngHappened2 =
