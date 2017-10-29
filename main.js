@@ -442,7 +442,11 @@ const makeDomHandler = () => {
     }
   }
   const gameConsoleClear = () => {
-    $('#console .contentInfo').innerHTML = ''
+    var contentTable=['#contentAll', '#contentFight', '#contentInfo', '#contentCatch', '#contentBall'];
+      var i;
+      for(i in contentTable ) {
+        $('#console '+ contentTable[i]).innerHTML=''
+      }
   }
   const renderBalls = (ballsAmmount) => {
     Object.keys(ballsAmmount).forEach(ballType => {
