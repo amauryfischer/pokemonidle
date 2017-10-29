@@ -214,7 +214,14 @@ const makeDomHandler = () => {
     } //Unlock Hoenn region if all the pokemons of Kanto, Johto and Hoenn are captured
     if(document.getElementById('regionSelect').innerHTML.indexOf("Unova")==-1 && dexData.length>=493) {
       document.getElementById('regionSelect').innerHTML+="<option value=\"Unova\">Unova</option>"
-    } //Unlock Hoenn region if all the pokemons of Kanto, Johto, Hoenn and Sinnoh are captured
+    } //Unlock Unova region if all the pokemons of Kanto, Johto, Hoenn and Sinnoh are captured
+    if(document.getElementById('regionSelect').innerHTML.indexOf("Kalos")==-1 && dexData.length>=649) {
+      document.getElementById('regionSelect').innerHTML+="<option value=\"Kalos\">Kalos</option>"
+    } //Unlock Kalos region if all the pokemons of Kanto, Johto, Hoenn, Sinnoh, and Unova are captured
+    if(document.getElementById('regionSelect').innerHTML.indexOf("Alola")==-1 && dexData.length>=649) {
+      document.getElementById('regionSelect').innerHTML+="<option value=\"Alola\">Alola</option>"
+    }
+      //Unlock Alola region if all the pokemons of Kanto, Johto, Hoenn, Sinnoh and Unova are captured
   }
   const healElement = $('#heal')
   const renderHeal = (canHeal) => {
