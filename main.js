@@ -98,6 +98,8 @@ EXP_TABLE["Fast"] = [1, 2, 6, 21, 51, 100, 172, 274, 409, 583, 800, 1064, 1382, 
 
 const gameVersion = 194;
 
+let shinyRate = "0";
+
 let userSettings = {
   currentRegionId: 'Kanto',
   currentRouteId: 'starter',
@@ -631,6 +633,7 @@ const makePlayer = () => {
     masterball: 100
   }
   var selectedBall = "pokeball"
+
   var ballsAmmount = {
     pokeball: 20,
     greatball: 0,
@@ -738,6 +741,7 @@ const makePlayer = () => {
         pokes: pokemons.map((poke) => poke.save()),
         pokedexData: pokedexData,
         statistics: statistics,
+        shinyRate: shinyRate,
         userSettings: userSettings,
         ballsAmmount: ballsAmmount
       })
@@ -757,10 +761,15 @@ const makePlayer = () => {
       if (JSON.parse(localStorage.getItem('pokedexData'))) {
         pokedexData = JSON.parse(localStorage.getItem('pokedexData'))
       } else {
-        pokedexData = []
+        pokedexData = [];
+      }
+      if (JSON.parse(localStorage.getItem('shinyRate'))) {
+        shinyRate = JSON.parse(localStorage.getItem('shinyRate'));
+      } else {
+        shinyRate = 0;
       }
       if (JSON.parse(localStorage.getItem('statistics'))) {
-          statistics = JSON.parse(localStorage.getItem('statistics'))
+          statistics = JSON.parse(localStorage.getItem('statistics'));
       }
       if (JSON.parse(localStorage.getItem('userSettings'))) {
         userSettings = JSON.parse(localStorage.getItem('userSettings'))
@@ -823,6 +832,7 @@ const makePlayer = () => {
           pokemons.push(makePoke(pokeByName(pokeName), false, Number(exp), shiny))
         })
         ballsAmmount = saveData.ballsAmmount
+        shinyRate = saveData.shinyRate ? saveData.shinyRate : (1 / (1 << 5 << 8)).toString()
         pokedexData = saveData.pokedexData ? saveData.pokedexData : []
         statistics = saveData.statistics ? saveData.statistics : statistics
         if (saveData.userSettings) {
@@ -844,7 +854,7 @@ const makePlayer = () => {
       return ballsRngs[ballName]
     }
   , changeSelectedBall: (newBall) => {
-      selectedBall = newBall
+      selectedBall = newBallballsAmmountballsAmmount
     }
   , consumeBall: (ballName) => {
      if (ballsAmmount[ballName] > 0) {
@@ -879,8 +889,8 @@ const makeEnemy = (starter) => {
       poke,
       recipe.minLevel + Math.round((Math.random() * (recipe.maxLevel - recipe.minLevel))),
       false,
-      Math.random() <(1 / (1 << 5 << 8))
-    )
+      Math.random() < parseFloat(localStorage.getItem('shinyRate'))
+    ) //shinyRate
   }
 
   return {
@@ -930,7 +940,6 @@ const makeUserInteractions = (player, enemy, dom, combatLoop) => {
       renderView(dom, enemy, player)
     },
     deletePokemon: (event, index) => {
-      //if (event.shiftKey) {
         const pokemon = player.pokemons()[index];
         player.deletePoke(index)
         if (!player.hasPokemon(pokemon.pokeName()))
@@ -938,9 +947,6 @@ const makeUserInteractions = (player, enemy, dom, combatLoop) => {
         combatLoop.changePlayerPoke(player.activePoke())
         renderView(dom, enemy, player)
         player.savePokes()
-      /**} else {
-        alert('Hold shift while clicking the X to release a pokemon')
-      }**/
     },
     healAllPlayerPokemons: () => {
       if (player.healAllPokemons() === "healed") {
@@ -978,8 +984,22 @@ const makeUserInteractions = (player, enemy, dom, combatLoop) => {
     },
     clearGameData: () => {
       if (dom.checkConfirmed('#confirmClearData')) {
+        let normalRate = (1 / (1 << 5 << 8));
+        let growRate = (1 / (1 << 5 << 8));
+        let shinyCaught = JSON.parse(localStorage.statistics).shinyCaught;
+        let savedShinyRate = localStorage.getItem('shinyRate')
+        if (savedShinyRate) {
+          savedShinyRate = (parseFloat(savedShinyRate) + growRate*shinyCaught);
+          if (savedShinyRate > 1) {
+            savedShinyRate = 1
+          }
+        } else {
+          savedShinyRate = normalRate;
+        }
         localStorage.clear()
+        localStorage.setItem(`shinyRate`,savedShinyRate.toString());
         window.location.reload(true)
+        console.log(savedShinyRate);
       }
     },
     clearConsole: () => {
@@ -1103,12 +1123,13 @@ const makeUserInteractions = (player, enemy, dom, combatLoop) => {
             'shinySeen':'Shiny Pokemon Seen',
             'shinyCaught':'Shiny Pokemon Caught',
             'shinyBeaten':'Shiny Pokemon Beaten',
-            'totalDamage':'Total Damage Dealt'
+            'totalDamage':'Total Damage Dealt',
         }
         let statList = '';
         for (let statValue in statistics) {
           statList += '<li>' + statisticStrings[statValue] + ': ' + statistics[statValue] + '</li>';
         }
+        statList += '<li>Shiny rate : '+ localStorage.getItem('shinyRate')+ '</li>'
         document.getElementById('statisticsList').innerHTML = statList
         document.getElementById('statisticsContainer').style.display = 'block'
       },
@@ -1319,6 +1340,9 @@ if (localStorage.getItem(`totalPokes`) !== null) {
   var starterPoke = makePoke(pokeById(randomArrayElement([1, 4, 7])), 5)
   player.addPoke(starterPoke)
   player.addPokedex(starterPoke.pokeName(), 6)
+}
+if (!localStorage.shinyRate) {
+  localStorage.shinyRate = (1 / (1 << 5 << 8)).toString();
 }
 
 if (userSettings.spriteChoice === 'front') {
