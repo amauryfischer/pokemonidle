@@ -212,7 +212,7 @@ const makeDomHandler = () => {
     if(document.getElementById('regionSelect').innerHTML.indexOf("Sinnoh")==-1 && dexData.length>=386) {
       document.getElementById('regionSelect').innerHTML+="<option value=\"Sinnoh\">Sinnoh</option>"
     } //Unlock Hoenn region if all the pokemons of Kanto, Johto and Hoenn are captured
-    if(document.getElementById('regionSelect').innerHTML.indexOf("Unova")==-1 && dexData.length>=387) {
+    if(document.getElementById('regionSelect').innerHTML.indexOf("Unova")==-1 && dexData.length>=493) {
       document.getElementById('regionSelect').innerHTML+="<option value=\"Unova\">Unova</option>"
     } //Unlock Hoenn region if all the pokemons of Kanto, Johto, Hoenn and Sinnoh are captured
   }
