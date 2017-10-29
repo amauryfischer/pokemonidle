@@ -397,22 +397,39 @@ const makeDomHandler = () => {
   }
   const gameConsoleLog = (text, color) => {
     var logElement;
-    if (text.includes("Attacked")) {
-      logElement  = $('#console #consoleFight #contentFight');
-    } else {
-      logElement = $('#console #consoleInfo #contentInfo');
+    var logElementAll = $('#consoleAll #contentAll');
+    if (text.includes("Attacked") || text.includes("Fainted") || text.includes("Go")) {
+      logElement  = $('#consoleFight #contentFight');
     }
+    else if (text.includes("won") || text.includes("xp")) {
+      logElement = $('#consoleInfo #contentInfo');
+    }
+    else if (text.includes("Trying") || text.includes("escaped") || text.includes("caught")) {
+      logElement = $('#consoleCatch #contentCatch');
+    }
+    else {
+      // should include balls only
+      logElement = $('#consoleBall #contentBall');
+    }
+
     if ($('#enableConsole').checked) {
       if (color) {
-        logElement.innerHTML = '<span style="color:' + color + ';">' + text + '</span>' + '<br>' + logElement.innerHTML
+        logElement.innerHTML = '<span style="color:' + color + ';">' + text + '</span>' + '<br>' + logElement.innerHTML;
+        logElementAll.innerHTML = '<span style="color:' + color + ';">' + text + '</span>' + '<br>' + logElementAll.innerHTML;
       } else {
-        logElement.innerHTML = text + '<br>' + logElement.innerHTML
+        logElement.innerHTML = text + '<br>' + logElement.innerHTML;
+        logElementAll.innerHTML = text + '<br>' + logElementAll.innerHTML;
       }
     }
     const logAsArray = logElement.innerHTML.split('<br>')
     if (logAsArray.length >= 100) {
-      logAsArray.splice(logAsArray.length - 1, 1)
-      logElement.innerHTML = logAsArray.join('<br>')
+      logAsArray.splice(logAsArray.length - 1, 1);
+      logElement.innerHTML = logAsArray.join('<br>');
+    }
+    const logAsArrayAll = logElementAll.innerHTML.split('<br>')
+    if (logAsArrayAll.length >= 100) {
+      logAsArrayAll.splice(logAsArrayAll.length - 1, 1);
+      logAsArrayAll.innerHTML = logAsArrayAll.join('<br>');
     }
   }
   const gameConsoleClear = () => {
